@@ -94,7 +94,7 @@ function Login() {
         marginLeft: '1rem',
         marginRight: '1rem'
       }}>
-      <img src={logo} />
+      <img src={logo} alt="logo" />
       <Card
 
         sx={{
