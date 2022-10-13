@@ -1,6 +1,8 @@
 
-import Login from './pages/Login';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import BlogLogin from './pages/BlogLogin';
+import Home from './pages/Home';
+import Resume from './pages/Resume';
+import {Routes, Route} from 'react-router-dom';
 import {Box} from '@mui/material';
 import {Helmet, HelmetData} from 'react-helmet-async';
 
@@ -9,6 +11,8 @@ import {Helmet, HelmetData} from 'react-helmet-async';
 function App() {
 
   const helmetData = new HelmetData({});
+
+
   return (
     <Box 
     display="flex"
@@ -23,7 +27,12 @@ function App() {
           <style>{'body { background-color: #3c344c; }'}</style>
         </Helmet>
                 
-      <Login />
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='blog' element={<BlogLogin />} />
+        <Route path='resume' element={<Resume />} />
+      </Routes>
     </Box>
 
   );

@@ -21,7 +21,7 @@ import {
 } from '@mui/lab';
 
 
-function Login() {
+function BlogLogin() {
 
 
 
@@ -70,14 +70,18 @@ function Login() {
 
   async function btnClicked(event) {
     const { name } = event.target;
+    if(register.passwordAgain){
+      delete register.passwordAgain;
+    }
+
+      await axios.post('https://blog-api-production-68d6.up.railway.app/api/auth/'+name, eval(name)).then(res =>{
+        console.log(res);
+      }, err =>{
+        console.log(err.response);
+      });
   
 
 
-    await axios.post('https://blog-api-production-68d6.up.railway.app/api/auth/login', login).then(res =>{
-      console.log(res);
-    }, err =>{
-      console.log(err);
-    });
 
 
   }
@@ -134,4 +138,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default BlogLogin;
