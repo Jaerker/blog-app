@@ -73,7 +73,7 @@ function Login() {
   
 
 
-    axios.post('https://blog-api-production-68d6.up.railway.app/api/auth/login', {login}).then(res =>{
+    await axios.post('https://blog-api-production-68d6.up.railway.app/api/auth/login', {login}).then(res =>{
       console.log(res);
     }, err =>{
       console.log(err);
