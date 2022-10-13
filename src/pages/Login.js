@@ -1,129 +1,136 @@
+
 import React, { useState } from 'react';
+import logo from '../static/img/logo.png';
+import axios from 'axios';
 import {
-  MDBContainer,
-  MDBTabs,
-  MDBTabsItem,
-  MDBTabsLink,
-  MDBTabsContent,
-  MDBTabsPane,
-  MDBBtn,
-  MDBInput,
-  MDBCheckbox
-}
-from 'mdb-react-ui-kit';
-import  {MDBIcon} from 'mdbreact';
+  Container,
+  TextField,
+  Button,
+  Card,
+  CardContent,
+  Tab,
+  FormControl
+
+} from '@mui/material';
+
+import {
+  TabContext,
+
+  TabList,
+  TabPanel
+} from '@mui/lab';
+
 
 function Login() {
 
-  const [justifyActive, setJustifyActive] = useState('tab1');;
 
-  const handleJustifyClick = (value) => {
-    if (value === justifyActive) {
-      return;
-    }
 
-    setJustifyActive(value);
-  };
+  const [value, setValue] = useState('1');
+
+  const [register, setRegister] = useState({
+    fName: "",
+    lName: "",
+    email: "",
+    password: ""
+  });
+
+  const [login, setLogin] = useState({
+    email: "",
+    password: ""
+  })
+
+  function handleTabChange(event, newValue) {
+    setValue(newValue);
+
+  }
+
+  function handleSignUpChange(event) {
+    const { value, name } = event.target;
+    setRegister((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value
+      }
+    });
+  }
+
+
+
+  function handleSignInChange(event) {
+    const { value, name } = event.target;
+
+    setLogin((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value
+      }
+    });
+
+  }
+
+  async function btnClicked(event) {
+    const { name } = event.target;
+  
+
+
+    axios.post('https://blog-api-production-68d6.up.railway.app/api/auth/login', {login}).then(res =>{
+      console.log(res);
+    }, err =>{
+      console.log(err);
+    });
+
+
+  }
+
+
+
 
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+    <Container
+      maxWidth='false'
+      sx={{
+        maxWidth: '40rem',
+        textAlign: 'center',
+        marginLeft: '1rem',
+        marginRight: '1rem'
+      }}>
+      <img src={logo} />
+      <Card
 
-      <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
-        <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-            Login
-          </MDBTabsLink>
-        </MDBTabsItem>
-        <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
-            Register
-          </MDBTabsLink>
-        </MDBTabsItem>
-      </MDBTabs>
+        sx={{
+          textAlign: 'center'
+        }}>
+        <CardContent>
 
-      <MDBTabsContent>
+          <TabContext value={value}>
+            <TabList centered onChange={(handleTabChange)}>
+              <Tab label='Sign In' value='1' />
+              <Tab label='Sign Up' value='2' />
 
-        <MDBTabsPane show={justifyActive === 'tab1'}>
+            </TabList>
 
-          <div className="text-center mb-3">
-            <p>Sign in with: </p>
-
-            <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='facebook-f' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='twitter' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='google' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='github' size="sm"/>
-              </MDBBtn>
-            </div>
-
-            <p className="text-center mt-3">or:</p>
-          </div>
-
-          <MDBInput wrapperClass='mb-4' placeHolder='Email address' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' placeHolder='Password' id='form2' type='password'/>
-
-          <div className="d-flex justify-content-between mx-4 mb-4">
-            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-            <a href="!#">Forgot password?</a>
-          </div>
-
-          <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
-          <p className="text-center">Not a member? <a href="#!">Register</a></p>
-
-        </MDBTabsPane>
-
-        <MDBTabsPane show={justifyActive === 'tab2'}>
-
-          <div className="text-center mb-3">
-            <p>Sign up with:</p>
-
-            <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='facebook-f' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='twitter' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='google' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='github' size="sm"/>
-              </MDBBtn>
-            </div>
-
-            <p className="text-center mt-3">or:</p>
-          </div>
-
-          <MDBInput wrapperClass='mb-4' placeHolder='First Name' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' placeHolder='Last Name' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' placeHolder='Email' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' placeHolder='Password' id='form1' type='password'/>
-
-          <div className='d-flex justify-content-center mb-4'>
-            <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
-          </div>
-
-          <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
-
-        </MDBTabsPane>
-
-      </MDBTabsContent>
-
-    </MDBContainer>
+            <h2>Post API</h2>
+            <TabPanel value='1'>
+              <FormControl onChange={handleSignInChange} sx={{width:'75%'}}>
+                <TextField id='signInEmail' name='email' label='Email' variant='standard' value={login.email} />
+                <TextField id='signInPassword' name='password' label='Password' variant='standard' type='password' value={login.password} />
+                <Button name='login' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>SIGN IN</Button>
+              </FormControl>
+            </TabPanel>
+            <TabPanel value='2'>
+              <FormControl onChange={handleSignUpChange} sx={{width:'75%'}}>
+                <TextField id='fName' name='fName' label='First name' variant='standard' value={register.fName} />
+                <TextField id='lName' name='lName' label='Last name' variant='standard' value={register.lName} />
+                <TextField id='signUpEmail' name='email' label='Email' variant='standard' value={register.email} />
+                <TextField id='signUpPassword' name='password' label='Password' variant='standard' type='password' value={register.password} />
+                <TextField id='signUpPasswordCheck' name='passwordAgain' label='Re-type Password' variant='standard' type='password' />
+                <Button name='register' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>REGISTER</Button>
+              </FormControl>
+            </TabPanel>
+          </TabContext>
+        </CardContent>
+      </Card>
+    </Container>
   );
 }
 
