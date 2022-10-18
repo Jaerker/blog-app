@@ -33,7 +33,7 @@ const UpperRightBtn = (props) => {
                         </Grid>
                         
                         <Grid item>
-                            <Button variant='contained' component={Link} to='blog' sx={{ marginRight:{ xs:'0', md:'1vh' }, marginTop:{ xs:'5px', md:'0' }, backgroundColor: '#fff', color: '#000'}}> Blog API</Button>
+                            <Button variant='contained' component={Link} to='/blog' sx={{ marginRight:{ xs:'0', md:'1vh' }, marginTop:{ xs:'5px', md:'0' }, backgroundColor: '#fff', color: '#000'}}> Blog API</Button>
                         </Grid>
                         
                     </Grid>
