@@ -36,15 +36,15 @@ function App() {
         <Route path='/' element={<>
           <Navbar values={token} isInBlogPage={false} />
           <Home /> </>} />
-        <Route path='blog' element={<>
+        <Route path='/blog' element={<>
           <Navbar values={token} isInBlogPage={true} />
           <BlogPage />
         </>} />
-        <Route path='projects' element={<>
+        <Route path='/projects' element={<>
           <Navbar values={token} isInBlogPage={false} />
           <Projects />
         </>} />
-        <Route path='resume' element={<>
+        <Route path='/resume' element={<>
           <Navbar values={token} isInBlogPage={false} />
           <Resume />
         </>} />
