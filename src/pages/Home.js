@@ -1,22 +1,20 @@
-import { Container } from '@mui/system';
-import React from 'react';
-import {Link} from 'react-router-dom';
+
+import {
+    Grid
+} from '@mui/material';
+import React, {useState} from 'react';
+import Navbar from './components/Navbar';
 
 
-function Home(){
+const Home = () => {
 
+    const [token, setToken] = useState(JSON.parse(window.localStorage.getItem('JAERKER_BLOG_APP_PORTFOLIO')));
 
-    return(
-    <>
-    <Container>
-    <h1>This is working</h1>
-    <h2>Do you want to see the blog api?</h2>
-    <Link to="blog">Click here!</Link>
-    </Container>
-    <Container>
-        <Link to="resume">Here is my resume!</Link>
-        </Container>
-    </>
+    return (
+        <Grid container spacing={2}>
+            <Grid item xs={12}>
+            </Grid>
+        </Grid>
     );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Resume = () => {
+const Projects = () => {
 
 
     return(
@@ -11,4 +11,4 @@ const Resume = () => {
     );
 }
 
-export default Resume;
+export default Projects;
