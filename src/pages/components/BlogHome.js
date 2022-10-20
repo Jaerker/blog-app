@@ -1,105 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import {
-  Container,
   Card,
   CardContent,
-  CardHeader,
-  Typography,
-  Button,
-  CircularProgress,
-
+  Typography
 } from '@mui/material';
-
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { Box } from '@mui/system';
 
+import Home from './blog_home_pages/Home'; 
 
 
-const BlogHome = (props) => {
+
+const BlogHome = () => {
 
 
-  // const updatePosts =  async () =>{
-  //   const response = await axios.get('https://blog-api-production-68d6.up.railway.app/api/blog/posts',
-  //     {
-  //       headers: {
-  //         'auth-token': props.token.token
-  //       }
-  //     });
 
-  //     setPosts(response.data);
+  const [Token, setToken] = useState(JSON.parse(window.localStorage.getItem('JAERKER_BLOG_APP_PORTFOLIO')));
+
+  const {token, user } = Token;
+ 
 
 
-  // }
+  
 
 
-  const [name, setName] = useState(props.values.fName);
-
-  const [posts, setPosts] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch('https://blog-api-production-68d6.up.railway.app/api/blog/posts', {headers: {'auth-token': props.values.token}})
-    .then(response => {
-      if(response.ok) {
-        return response.json();
-      }
-      throw response;
-    }).then(res =>{
-      setPosts(res);
-    }).catch(e =>{
-      console.error("Error fetching data: ", e);
-      setError(e);
-    }).finally(()=>{
-      setLoading(false);
-      
-    });
-  }, []);
-
-
-  const btnClicked = async () => {
-    const response = await axios.get('https://blog-api-production-68d6.up.railway.app/api/blog/posts',
-      {
-        headers: {
-          'auth-token': props.values.token
-        }
-      });
-
-    console.log(response.data);
-  }
 
   return (
-    <>
-      <Card
+<>
+<Box sx={{margin: '1vh'}}>
+        <Card
 
-        sx={{
-          textAlign: 'center'
-        }}>
+          sx={{
+            textAlign: 'center',
+            
+          }}>
+            
+          <CardContent>
+            <Typography variant='h3'>'Blog' Post API</Typography>
+            
+          </CardContent>
+        </Card>
+      </Box>
+    <Routes>
+    <Route path='/' element={<>
+      
+          <Home token={token} /> </>} />
+    </Routes>
 
-        <CardContent>
-
-          <h2>Post API</h2>
-          <p>Hello and welcome {name}!</p>
-
-          {loading ? (
-            <Box>
-            <CircularProgress />
-            </Box>
-          ) : (
-            posts.map((post) => (
-            <div key={post._id} id={post._id}>
-              <h2>{post.title}</h2>
-              <p>{post.content}</p>
-              </div>
-            ))
-          )}  
-
-          <Button variant="contained" component= {Link} to='/'>Press here to go back to the first page</Button>
-        </CardContent>
-      </Card>
     </>
   )
+  
 }
 
 export default BlogHome;

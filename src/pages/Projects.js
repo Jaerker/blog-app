@@ -6,7 +6,7 @@ const Projects = () => {
 
     return(
     <>
-    <h1>This is working as well</h1>
+    <h1>This is working as well! Not bad</h1>
     </>
     );
 }

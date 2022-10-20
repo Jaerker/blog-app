@@ -3,6 +3,7 @@ import axios from 'axios';
 import logo from '../../static/img/logo.png';
 import {
   Container,
+  Box,
   TextField,
   Button,
   Card,
@@ -17,7 +18,6 @@ import {
 
 import {
   TabContext,
-
   TabList,
   TabPanel
 } from '@mui/lab';
@@ -158,6 +158,13 @@ const BlogLogin = () => {
 
   return (
     <>
+        <Box
+      display="flex"
+      flexDirection="Column"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+    >
       <Collapse in={alertMsg.showing}>
         <Alert onClose={() => {
           setAlertMsg((prevValue) => {
@@ -225,7 +232,7 @@ const BlogLogin = () => {
           </CardContent>
         </Card>
       </Container>
-    </>);
+      </Box></>);
 }
 
 export default BlogLogin;

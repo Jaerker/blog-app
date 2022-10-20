@@ -12,13 +12,20 @@ import React, { useState } from 'react';
 
 
 
-function App() {
+
+
+export default function App() {
+
 
   const helmetData = new HelmetData({});
 
-  const [token, setToken] = useState(JSON.parse(window.localStorage.getItem('JAERKER_BLOG_APP_PORTFOLIO')));
+  const [Token, setToken] = useState(JSON.parse(window.localStorage.getItem('JAERKER_BLOG_APP_PORTFOLIO')));
 
+  const token = Token?.token;
 
+  const user = Token?.user;
+ 
+  
 
   return (
     <>
@@ -34,18 +41,18 @@ function App() {
 
       <Routes>
         <Route path='/' element={<>
-          <Navbar values={token} isInBlogPage={false} />
+          <Navbar values={{token, user}} isInBlogPage={false} />
           <Home /> </>} />
-        <Route path='/blog' element={<>
-          <Navbar values={token} isInBlogPage={true} />
+        <Route path='/blog/*' element={<>
+          <Navbar values={{token, user}} isInBlogPage={true} />
           <BlogPage />
         </>} />
         <Route path='/projects' element={<>
-          <Navbar values={token} isInBlogPage={false} />
+          <Navbar values={{token, user}} isInBlogPage={false} />
           <Projects />
         </>} />
         <Route path='/resume' element={<>
-          <Navbar values={token} isInBlogPage={false} />
+          <Navbar values={{token, user}} isInBlogPage={false} />
           <Resume />
         </>} />
       </Routes>
@@ -56,4 +63,4 @@ function App() {
   );
 }
 
-export default App;
+
