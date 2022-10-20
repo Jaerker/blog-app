@@ -12,7 +12,7 @@ const BlogPage = () => {
 
   const [Token, setToken] = useState(JSON.parse(window.localStorage.getItem('JAERKER_BLOG_APP_PORTFOLIO')));
 
-  const {token } = Token;
+  const token = Token?.token;
 
 
   return (
@@ -21,15 +21,15 @@ const BlogPage = () => {
       
     
 
-      {token === null ?
+      {token ?
         (
-          <BlogLogin />
+          <BlogHome />
         )
 
         :
 
         (
-          <BlogHome />
+          <BlogLogin />
         )}
 
 
