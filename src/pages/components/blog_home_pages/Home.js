@@ -46,7 +46,7 @@ const Home = (props) => {
         //     console.log("woho")
         // })
 
-        await axios.post(`${postUrl}/${postId}/like`, { header: {'auth-token' : props.token}}).then((res)=>{
+        await axios.post(`${postUrl}/${postId}/like`,{},  { header: {'auth-token' : props.token}}).then((res)=>{
             console.log(res);
         });
 
