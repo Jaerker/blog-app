@@ -12,7 +12,7 @@ const UpperRightBtn = (props) => {
     return (
         <>
 
-            {props.token ? (
+            {props.token !== null ? (
 
                 <Grid container sx={{ flexDirection: { xs: 'column', md: 'row-reverse' }, alignItems: { xs: 'center' } }} >
                     <Grid item>
