@@ -9,10 +9,12 @@ const UpperRightBtn = (props) => {
 
     const secretPages = [{ tag: 'LOGIN', url: 'login' }, { tag: 'LOGOUT', url: 'logout' }];
 
+    console.log(props.token);
+
     return (
         <>
 
-            {props.token === null ? (
+            {props.token ? (
 
                 <Grid container sx={{ flexDirection: { xs: 'column', md: 'row-reverse' }, alignItems: { xs: 'center' } }} >
                     <Grid item>

@@ -51,7 +51,7 @@ const Navbar = (props) => {
                     </Grid>
                     <Grid item>
                     {!props.isInBlogPage && (
-                        <UpperRightBtn token={props.values} btnClick={btnClick} />
+                        <UpperRightBtn token={props.values.token} btnClick={btnClick} />
                     )}
                     </Grid>
                     </Grid>
