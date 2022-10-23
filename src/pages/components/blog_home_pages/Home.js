@@ -39,24 +39,31 @@ const Home = (props) => {
     }
 
     const likeBtnPressed = async (postId) => {
-        // fetch(`${postUrl}/${postId}/like`, {
-        //     method: 'POST',
-        //     headers: { 'auth-token': props.token }
-        // }).then(() => {
-        //     console.log("woho")
-        // });
-        let connection = axios.create({
-            headers: {
-                post: {
-                    'auth-token' : props.token
-                }
-            }
-        }); 
+        fetch(`${postUrl}/${postId}/like`, {
+            method: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            headers: { 'auth-token': props.token }
+        }).then(() => {
+            console.log("woho")
+        });
+
+        // let connection = axios.create({
+        //     headers: {
+        //         post: {
+        //             'auth-token' : props.token
+        //         }
+        //     }
+        // }); 
         
 
-        await connection.post(`${postUrl}/${postId}/like`).then((res)=>{
-            console.log(res);
-        });
+        // await connection.post(`${postUrl}/${postId}/like`).then((res)=>{
+        //     if(res.ok){
+        //         console.log(res);
+        //     }
+        //     else {
+        //         console.log('some error: ' + res);
+        //     }
+        // });
 
     }
 
