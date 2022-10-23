@@ -45,9 +45,16 @@ const Home = (props) => {
         // }).then(() => {
         //     console.log("woho")
         // })
-        axios.defaults.headers.common['auth-token'] = props.token;
+        let connection = axios.create({
+            headers: {
+                post: {
+                    'auth-token' : props.token
+                }
+            }
+        }); 
+        
 
-        await axios.post(`${postUrl}/${postId}/like`).then((res)=>{
+        await connection.post(`${postUrl}/${postId}/like`).then((res)=>{
             console.log(res);
         });
 
