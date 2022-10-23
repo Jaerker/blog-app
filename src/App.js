@@ -25,8 +25,6 @@ export default function App() {
 
   const user = Token?.user;
 
-  axios.defaults.headers.common['auth-token'] = props.token // for all requests
-
   return (
     <>
 
