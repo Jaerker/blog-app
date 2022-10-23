@@ -38,12 +38,16 @@ const Home = (props) => {
     }
 
     const likeBtnPressed = async (postId) => {
-        fetch(`${postUrl}/${postId}/like`, {
-            method: 'POST',
-            headers: { 'auth-token': props.token }
-        }).then(() => {
-            console.log("woho")
-        })
+        // fetch(`${postUrl}/${postId}/like`, {
+        //     method: 'POST',
+        //     headers: { 'auth-token': props.token }
+        // }).then(() => {
+        //     console.log("woho")
+        // })
+
+        await axios.post(`${postUrl}/${postId}/like`, { header: {'auth-token' : props.token}}).then((res)=>{
+            console.log(res);
+        });
 
     }
 
