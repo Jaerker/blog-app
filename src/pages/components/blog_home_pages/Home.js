@@ -18,24 +18,11 @@ import AddCommentIcon from '@mui/icons-material/AddComment';
 
 const Home = (props) => {
 
-    useEffect(() => {
-        fetch('https://blog-api-production-68d6.up.railway.app/api/blog/posts', { headers: { 'auth-token': props.token } })
-          .then(response => {
-            if (response.ok) {
-              return response.json();
-            }
-            throw response;
-          }).then(res => {
-            res.reverse();
-            setPosts(res);
-          }).catch(e => {
-            console.error("Error fetching data: ", e);
-            setError(e);
-          }).finally(() => {
-            setLoading(false);
-    
-          });
-      }, []);
+
+
+    const postUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/posts';
+    //const postUrl = 'http://localhost:3033/api/blog/posts';
+
 
     const [posts, setPosts] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -51,14 +38,33 @@ const Home = (props) => {
     }
 
     const likeBtnPressed = async (postId) => {
-        fetch(`https://blog-api-production-68d6.up.railway.app/api/blog/posts/${postId}/like`,{
-            method:'POST',
-            headers: { 'auth-token': props.token }           
-        }).then(()=>{
+        fetch(`${postUrl}/${postId}/like`, {
+            method: 'POST',
+            headers: { 'auth-token': props.token }
+        }).then(() => {
             console.log("woho")
         })
 
     }
+
+    useEffect(() => {
+        fetch(postUrl, { headers: { 'auth-token': props.token } })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw response;
+            }).then(res => {
+                res.reverse();
+                setPosts(res);
+            }).catch(e => {
+                console.error("Error fetching data: ", e);
+                setError(e);
+            }).finally(() => {
+                setLoading(false);
+
+            });
+    }, []);
 
     return (
         <Grid
@@ -68,7 +74,7 @@ const Home = (props) => {
         >
 
             {loading ? (
-                <Container sx={{position: 'fixed', top: '50%', left: '50%'}} >
+                <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
                     <CircularProgress />
                 </Container>
             ) : (
@@ -87,7 +93,7 @@ const Home = (props) => {
                             <CardActions>
 
                                 <IconButton sx={{ marginLeft: 'auto' }} onClick={async () => { likeBtnPressed(post._id) }}>
-                                    {}
+                                    { }
                                     <FavoriteIcon />
                                 </IconButton>
                                 <IconButton sx={{ marginLeft: 'auto' }} >

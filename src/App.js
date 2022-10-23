@@ -25,7 +25,6 @@ export default function App() {
 
   const user = Token?.user;
  
-  
 
   return (
     <>

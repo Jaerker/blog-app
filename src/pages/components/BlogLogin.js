@@ -24,6 +24,9 @@ import {
 
 const BlogLogin = () => {
 
+  const dbUrl = 'https://blog-api-production-68d6.up.railway.app/api/auth';
+  //const dbUrl = 'http://localhost:3033/api/auth';
+
   const [alertMsg, setAlertMsg] = useState({
     message: 'Verification mail has ben sent to you!',
     severity: 'success',
@@ -105,7 +108,7 @@ const BlogLogin = () => {
 
 
     //Everything went fine so far, trying to either login or register
-    const response = await axios.post(`https://blog-api-production-68d6.up.railway.app/api/auth/${name}`, eval(name)).then((res) => {
+    const response = await axios.post(`${dbUrl}/${name}`, eval(name)).then((res) => {
 
       if (name === 'login') {
         window.localStorage.setItem('JAERKER_BLOG_APP_PORTFOLIO', JSON.stringify(res.data));
@@ -119,7 +122,7 @@ const BlogLogin = () => {
     }).catch((err) => {
       setWorking(false);
       setAlertMsg({
-        message: `Error: ${err.response.data}`,
+        message: `Error: ${err}`,
         severity: 'warning',
         showing: true
       });
