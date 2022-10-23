@@ -41,7 +41,7 @@ const Home = (props) => {
     const likeBtnPressed = async (postId) => {
         fetch(`${postUrl}/${postId}/like`, {
             method: 'POST',
-            contentType: 'application/json; charset=utf-8',
+            contentType: 'application/json',
             headers: { 'auth-token': props.token }
         }).then(() => {
             console.log("woho")
