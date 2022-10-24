@@ -12,7 +12,8 @@ import {
   FormControl,
   CircularProgress,
   Alert,
-  Collapse
+  Collapse,
+  Input
 
 } from '@mui/material';
 
@@ -122,7 +123,7 @@ const BlogLogin = () => {
     }).catch((err) => {
       setWorking(false);
       setAlertMsg({
-        message: `Error: ${err}`,
+        message: `${err.response.data}`,
         severity: 'warning',
         showing: true
       });
@@ -211,22 +212,26 @@ const BlogLogin = () => {
               ) : (
                 <>
                   <TabPanel value='1'>
-                    <FormControl onChange={handleSignInChange} sx={{ width: '80%' }}>
-                      <TextField id='signInEmail' name='email' label='Email' variant='standard' value={login.email} />
-                      <TextField id='signInPassword' name='password' label='Password' variant='standard' type='password' value={login.password} />
-                      <Button name='login' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>SIGN IN</Button>
+                    <Box component='form'>
+                    <FormControl onChange={handleSignInChange} sx={{ width: '80%' }} variant='standard'>
+                      <TextField required id='signInEmail' name='email' label='Email' variant='standard' value={login.email} />
+                      <TextField autoComplete='on' required id='signInPassword' name='password' label='Password' variant='standard' type='password' value={login.password} />
+                      <Button type="submit" name='login' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>SIGN IN</Button>
                     </FormControl>
+                    </Box>
                   </TabPanel>
 
                   <TabPanel value='2'>
+                  <Box component='form'>
                     <FormControl onChange={handleSignUpChange} sx={{ width: '80%' }}>
-                      <TextField id='fName' name='fName' label='First name' variant='standard' value={verify.fName} />
-                      <TextField id='lName' name='lName' label='Last name' variant='standard' value={verify.lName} />
-                      <TextField id='signUpEmail' name='email' label='Email' variant='standard' value={verify.email} />
-                      <TextField id='signUpPassword' name='password' label='Password' variant='standard' type='password' value={verify.password} />
-                      <TextField id='signUpPasswordCheck' name='passwordAgain' label='Re-type Password' variant='standard' type='password' />
+                      <TextField required id='fName' name='fName' label='First name' variant='standard' value={verify.fName} />
+                      <TextField required id='lName' name='lName' label='Last name' variant='standard' value={verify.lName} />
+                      <TextField required id='signUpEmail' name='email' label='Email' variant='standard' value={verify.email} />
+                      <TextField required id='signUpPassword' name='password' label='Password' variant='standard' type='password' value={verify.password} />
+                      <TextField required id='signUpPasswordCheck' name='passwordAgain' label='Re-type Password' variant='standard' type='password' />
                       <Button type="submit" name='verify' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>REGISTER</Button>
                     </FormControl>
+                    </Box>
                   </TabPanel>
                 </>
               )}

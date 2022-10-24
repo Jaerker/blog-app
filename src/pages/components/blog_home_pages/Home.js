@@ -16,6 +16,7 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddCommentIcon from '@mui/icons-material/AddComment';
+import PostCard from './home_components/PostCard';
 
 const Home = (props) => {
 
@@ -28,105 +29,63 @@ const Home = (props) => {
     const [posts, setPosts] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [likes, setLikes] = useState(null);
 
 
-    const convertTime = (value) => {
-        const [date, time] = value.split('T');
-        const [year, month, day] = date.split('-');
-        const [hour, minute, scrap] = time.split(':');
-        const val = new Date(year, month, day, hour, minute);
-        return val.toDateString();
-    }
 
-    const likeBtnPressed = async (postId) => {
-        fetch(`${postUrl}/${postId}/like`, {
-            method: 'POST',
-            contentType: 'application/json',
-            headers: { 'auth-token': props.token }
-        }).then(() => {
-            console.log("woho")
-        });
 
-        // let connection = axios.create({
-        //     headers: {
-        //         post: {
-        //             'auth-token' : props.token
-        //         }
-        //     }
-        // }); 
-        
 
-        // await connection.post(`${postUrl}/${postId}/like`).then((res)=>{
-        //     if(res.ok){
-        //         console.log(res);
-        //     }
-        //     else {
-        //         console.log('some error: ' + res);
-        //     }
-        // });
 
-    }
 
     useEffect(() => {
-        fetch(postUrl, { headers: { 'auth-token': props.token } })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw response;
-            }).then(res => {
-                res.reverse();
-                setPosts(res);
-            }).catch(e => {
-                console.error("Error fetching data: ", e);
-                setError(e);
-            }).finally(() => {
-                setLoading(false);
 
-            });
+        const fetchData = async () => {
+            fetch(postUrl, { headers: { 'auth-token': props.token } })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw response;
+                }).then(res => {
+                    res.reverse();
+                    setPosts(res);
+                    
+                }).catch(e => {
+                    console.error("Error fetching data: ", e);
+                    setError(e);
+                }).finally(() => {
+
+                    setLoading(false);
+
+                });
+        }
+
+        fetchData().catch(console.error);
+    
+         
     }, []);
 
-    return (
-        <Grid
-            container
-            spacing={1}
 
-        >
+return (
+    <Grid
+        container
+        spacing={1}
 
-            {loading ? (
-                <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
-                    <CircularProgress />
-                </Container>
-            ) : (
-                posts?.map((post) => (
-                    <Grid key={post._id} id={post._id} item xs={12} md={4} sx={{ margin: '1vh' }}>
-                        <Card >
-                            <CardContent >
-                                <Typography color='text.secondary' sx={{ fontSize: 13 }} gutterBottom>{convertTime(post.createdAt)}</Typography>
-                                <Typography variant='h4' sx={{ ml: '2vh', mr: '2vh' }}> {post.title} </Typography>
+    >
 
-                                <Typography sx={{ mt: '1vh', ml: '2vh', mr: '2vh' }}>
-                                    {post.content}
-                                </Typography>
-
-                            </CardContent >
-                            <CardActions>
-
-                                <IconButton sx={{ marginLeft: 'auto' }} onClick={async () => { likeBtnPressed(post._id) }}>
-                                    { }
-                                    <FavoriteIcon />
-                                </IconButton>
-                                <IconButton sx={{ marginLeft: 'auto' }} >
-                                    <AddCommentIcon />
-                                </IconButton>
-
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                ))
-            )}
-        </Grid>
-    )
+        {loading ? (
+            <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
+                <CircularProgress />
+            </Container>
+        ) : (
+            posts?.map((post) => (
+                <Grid item key={post._id} id={post._id} xs={12} md={4} sx={{ margin: '1vh' }}>
+                    <PostCard values={post} token={props.token} userId={props.user._id}/>
+                </Grid>
+            ))
+        )}
+    </Grid>
+)
 }
 
 export default Home;

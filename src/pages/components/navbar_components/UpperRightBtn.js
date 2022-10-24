@@ -9,7 +9,6 @@ const UpperRightBtn = (props) => {
 
     const secretPages = [{ tag: 'LOGIN', url: 'login' }, { tag: 'LOGOUT', url: 'logout' }];
 
-    console.log(props.token);
 
     return (
         <>

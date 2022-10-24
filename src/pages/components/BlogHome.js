@@ -45,7 +45,7 @@ const BlogHome = () => {
     <Routes>
     <Route path='/' element={<>
       
-          <Home token={token} /> </>} />
+          <Home token={token} user={user} /> </>} />
     </Routes>
 
     </>
