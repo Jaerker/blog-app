@@ -96,7 +96,7 @@ const Navbar = (props) => {
                             </MenuItem>
                         ))}
                         {!props.isInBlogPage && (
-                            <UpperRightBtn token={props.values} btnClick={btnClick} />
+                            <UpperRightBtn token={props.values.token} btnClick={btnClick} />
                         )}
                     </Menu>
 
