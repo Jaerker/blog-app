@@ -146,11 +146,6 @@ const BlogLogin = () => {
       setWorking(false);
     }
     else{
-      setAlertMsg({
-        message: 'Something went wrong!',
-        severity: 'warning',
-        showing: true
-      });
       setWorking(false);
     }
 
