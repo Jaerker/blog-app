@@ -69,7 +69,7 @@ const Home = (props) => {
 return (
     <Grid
         container
-        spacing={1}
+        
 
     >
 
@@ -79,7 +79,7 @@ return (
             </Container>
         ) : (
             posts?.map((post) => (
-                <Grid item key={post._id} id={post._id} xs={12} md={4} sx={{ margin: '1vh' }}>
+                <Grid item key={post._id} id={post._id} xs={12} md={4} sx={{ mt: '1vh' }}>
                     <PostCard values={post} token={props.token} userId={props.user._id}/>
                 </Grid>
             ))

@@ -112,7 +112,6 @@ const BlogLogin = () => {
     //Everything went fine so far, trying to either login or register
     const response = await axios.post(`${dbUrl}/${name}`, eval(name)).then((res) => {
 
-      console.log(res);
 
       if (name === 'login') {
         window.localStorage.setItem('JAERKER_BLOG_APP_PORTFOLIO', JSON.stringify(res.data));

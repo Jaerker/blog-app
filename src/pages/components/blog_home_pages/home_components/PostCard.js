@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
+
 import {
     Container,
     Card,
@@ -55,10 +57,17 @@ const PostCard = (props) => {
         <Card key={props.values._id}>
             <CardContent >
                 <Typography color='text.secondary' sx={{ fontSize: 13 }} gutterBottom>{convertTime(props.values.createdAt)}</Typography>
-                <Typography variant='h4' sx={{ ml: '2vh', mr: '2vh' }}> {props.values.title} </Typography>
-
+                <Container>
+                <Typography component={Link} to={`post/${props.values._id}`} sx={{textDecoration:'none', color:'#000', ":hover": {color:'#A9A9A9'}}} variant='h4' > {props.values.title} </Typography>
+                </Container>
                 <Typography sx={{ mt: '1vh', ml: '2vh', mr: '2vh' }}>
-                    {props.values.content}
+                    {props.values.content.length > 100 ? (
+                        props.values.content.substr(0, 100) + '...'
+                    ) : (
+                        props.values.content
+                    )}
+
+                    
                 </Typography>
 
             </CardContent >

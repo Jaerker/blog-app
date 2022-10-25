@@ -6,15 +6,15 @@ import Projects from './pages/Projects';
 
 import Navbar from './pages/components/Navbar';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route   } from 'react-router-dom';
 import { Helmet, HelmetData } from 'react-helmet-async';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 
 
 
-export default function App() {
+const App = () => {
 
 
   const helmetData = new HelmetData({});
@@ -24,6 +24,7 @@ export default function App() {
   const token = Token?.token;
 
   const user = Token?.user;
+
 
   return (
     <>
@@ -36,7 +37,7 @@ export default function App() {
             }`}</style>
       </Helmet>
 
-
+      
       <Routes>
         <Route path='/' element={<>
           <Navbar values={{token, user}} isInBlogPage={false} />
@@ -62,3 +63,4 @@ export default function App() {
 }
 
 
+export default App
