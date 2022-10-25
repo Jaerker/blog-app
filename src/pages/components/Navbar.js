@@ -91,12 +91,12 @@ const Navbar = (props) => {
                     >
                         {normalPages.map((page) => (
 
-                            <MenuItem component={Link} to={page.url} key={page.tag} sx={{ color: '#000', justifyContent:'center'}}>
+                            <MenuItem onClick={()=>{handleDropDownBarDown()}} component={Link} to={page.url} key={page.tag} sx={{ color: '#000', justifyContent:'center'}}>
                                 {page.tag}
                             </MenuItem>
                         ))}
                         {!props.isInBlogPage && (
-                            <UpperRightBtn token={props.values.token} btnClick={btnClick} />
+                            <UpperRightBtn dropDownBar={handleDropDownBarDown} token={props.values.token} btnClick={btnClick} />
                         )}
                     </Menu>
 

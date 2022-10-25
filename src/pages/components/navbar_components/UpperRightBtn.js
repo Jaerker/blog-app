@@ -9,7 +9,6 @@ const UpperRightBtn = (props) => {
 
     const secretPages = [{ tag: 'LOGIN', url: 'login' }, { tag: 'LOGOUT', url: 'logout' }];
 
-    console.log(Boolean(props.token));
 
     return (
         <>
@@ -18,13 +17,15 @@ const UpperRightBtn = (props) => {
 
                 <Grid container sx={{ flexDirection: { xs: 'column', md: 'row-reverse' }, alignItems: { xs: 'center' } }} >
                     <Grid item>
-                        <Button variant='contained' accessKey={secretPages[1].tag.toLowerCase()} onClick={props.btnClick} sx={{ backgroundColor: '#fff', color: '#000' }}>
+                        <Button variant='contained' accessKey={secretPages[1].tag.toLowerCase()} onClick={(e)=>{props.dropDownBar(); props.btnClick(e)}} sx={{ backgroundColor: '#fff', color: '#000' }}>
                             {secretPages[1].tag}
                         </Button>
                     </Grid>
 
                     <Grid item>
-                        <Button variant='contained' component={Link} to='/blog' sx={{ marginRight: { xs: '0', md: '1vh' }, marginTop: { xs: '5px', md: '0' }, backgroundColor: '#fff', color: '#000' }}> Blog API</Button>
+                        <Button variant='contained' onClick={()=>{props.dropDownBar()}} component={Link} to='/blog' sx={{ marginRight: { xs: '0', md: '1vh' }, marginTop: { xs: '5px', md: '0' }, backgroundColor: '#fff', color: '#000' }}> 
+                        Blog API
+                        </Button>
                     </Grid>
 
                 </Grid>
@@ -34,7 +35,7 @@ const UpperRightBtn = (props) => {
             ) : (
                 <Grid container sx={{ flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'center' } }}>
                     <Grid item>
-                        <Button variant='contained' accessKey={secretPages[0].tag.toLowerCase()} onClick={props.btnClick} sx={{ backgroundColor: '#fff', color: '#000', marginRight: '1vh' }}>
+                        <Button variant='contained' onClick={()=>{props.dropDownBar()}} component={Link} to='/blog' sx={{ backgroundColor: '#fff', color: '#000', marginRight: { xs: '0', md: '1vh' }, marginTop: { xs: '5px', md: '0' } }}>
                             {secretPages[0].tag}
                         </Button>
                     </Grid>

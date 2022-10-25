@@ -123,7 +123,7 @@ const BlogLogin = () => {
     }).catch((err) => {
       setWorking(false);
       setAlertMsg({
-        message: `${err.response.data}`,
+        message: `Error: ${err.response.data}`,
         severity: 'warning',
         showing: true
       });
@@ -162,84 +162,87 @@ const BlogLogin = () => {
 
   return (
     <>
-        <Box
-      display="flex"
-      flexDirection="Column"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="100vh"
-    >
-      <Collapse in={alertMsg.showing}>
-        <Alert onClose={() => {
-          setAlertMsg((prevValue) => {
-            return {
-              ...prevValue,
-              showing: false
-            }
-          })
-        }} severity={alertMsg.severity}>{alertMsg.message}</Alert>
-      </Collapse>
+      <Box
+        display="flex"
+        flexDirection="Column"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh"
+      >
 
 
-      <Container
-        maxWidth='false'
-        sx={{
-          maxWidth: '40rem',
-          textAlign: 'center',
-        }}>
 
-        <img src={logo} alt="logo" />
-        <Card
-
+        <Container
+          maxWidth='false'
           sx={{
-            textAlign: 'center'
+            maxWidth: '40rem',
+            textAlign: 'center',
           }}>
-          <CardContent>
 
-            <TabContext value={value}>
-              <TabList centered onChange={handleTabChange}>
-                <Tab label='Sign In' value='1' />
-                <Tab label='Sign Up' value='2' />
+          <img src={logo} alt="logo" />
+          <Collapse in={alertMsg.showing}>
+                      <Alert sx={{mb:'-1rem'}} onClose={() => {
+                        setAlertMsg((prevValue) => {
+                          return {
+                            ...prevValue,
+                            showing: false
+                          }
+                        })
+                      }} severity={alertMsg.severity}>{alertMsg.message}</Alert>
+                    </Collapse>
+          <Card
 
-              </TabList>
+            sx={{
+              textAlign: 'center'
+            }}>
+            <CardContent>
 
-              <h2>Post API</h2>
-              {working ? (
-                <>
-                  <h2>Hold up...</h2>
-                  <CircularProgress />
-                </>
-              ) : (
-                <>
-                  <TabPanel value='1'>
-                    <Box component='form'>
-                    <FormControl onChange={handleSignInChange} sx={{ width: '80%' }} variant='standard'>
-                      <TextField required id='signInEmail' name='email' label='Email' variant='standard' value={login.email} />
-                      <TextField autoComplete='on' required id='signInPassword' name='password' label='Password' variant='standard' type='password' value={login.password} />
-                      <Button type="submit" name='login' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>SIGN IN</Button>
-                    </FormControl>
-                    </Box>
-                  </TabPanel>
 
-                  <TabPanel value='2'>
-                  <Box component='form'>
-                    <FormControl onChange={handleSignUpChange} sx={{ width: '80%' }}>
-                      <TextField required id='fName' name='fName' label='First name' variant='standard' value={verify.fName} />
-                      <TextField required id='lName' name='lName' label='Last name' variant='standard' value={verify.lName} />
-                      <TextField required id='signUpEmail' name='email' label='Email' variant='standard' value={verify.email} />
-                      <TextField required id='signUpPassword' name='password' label='Password' variant='standard' type='password' value={verify.password} />
-                      <TextField required id='signUpPasswordCheck' name='passwordAgain' label='Re-type Password' variant='standard' type='password' />
-                      <Button type="submit" name='verify' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>REGISTER</Button>
-                    </FormControl>
-                    </Box>
-                  </TabPanel>
-                </>
-              )}
+              <TabContext value={value}>
+                <TabList centered onChange={handleTabChange}>
+                  <Tab label='Sign In' value='1' />
+                  <Tab label='Sign Up' value='2' />
 
-            </TabContext>
-          </CardContent>
-        </Card>
-      </Container>
+                </TabList>
+
+                <h2>Post API</h2>
+                {working ? (
+                  <>
+                    <h2>Hold up...</h2>
+                    <CircularProgress />
+                  </>
+                ) : (
+                  <>
+                    
+                    <TabPanel value='1'>
+                      <Box component='form'>
+                        <FormControl onChange={handleSignInChange} sx={{ width: '80%' }} variant='standard'>
+                          <TextField required id='signInEmail' name='email' label='Email' variant='standard' value={login.email} />
+                          <TextField autoComplete='on' required id='signInPassword' name='password' label='Password' variant='standard' type='password' value={login.password} />
+                          <Button type="submit" name='login' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>SIGN IN</Button>
+                        </FormControl>
+                      </Box>
+                    </TabPanel>
+
+                    <TabPanel value='2'>
+                      <Box component='form'>
+                        <FormControl onChange={handleSignUpChange} sx={{ width: '80%' }}>
+                          <TextField required id='fName' name='fName' label='First name' variant='standard' value={verify.fName} />
+                          <TextField required id='lName' name='lName' label='Last name' variant='standard' value={verify.lName} />
+                          <TextField required id='signUpEmail' name='email' label='Email' variant='standard' value={verify.email} />
+                          <TextField required id='signUpPassword' name='password' label='Password' variant='standard' type='password' value={verify.password} />
+                          <TextField required id='signUpPasswordCheck' name='passwordAgain' label='Re-type Password' variant='standard' type='password' />
+                          <Button type="submit" name='verify' color='primary' size='large' onClick={btnClicked} variant='contained' style={{ marginTop: '3vh' }}>REGISTER</Button>
+                        </FormControl>
+                      </Box>
+                    </TabPanel>
+                  </>
+                )}
+
+              </TabContext>
+            </CardContent>
+          </Card>
+        </Container>
       </Box></>);
 }
 
