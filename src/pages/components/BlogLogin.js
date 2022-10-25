@@ -83,6 +83,7 @@ const BlogLogin = () => {
   }
 
   const btnClicked = async (event) => {
+    event.preventDefault();
 
     setWorking(true);
 
@@ -111,6 +112,8 @@ const BlogLogin = () => {
     //Everything went fine so far, trying to either login or register
     const response = await axios.post(`${dbUrl}/${name}`, eval(name)).then((res) => {
 
+      console.log(res);
+
       if (name === 'login') {
         window.localStorage.setItem('JAERKER_BLOG_APP_PORTFOLIO', JSON.stringify(res.data));
         window.location.reload(false);
@@ -118,16 +121,11 @@ const BlogLogin = () => {
       else {
 
         setWorking(false);
-        return true;
+        return ['Email verification is sent succesfully, go and verify!', 'success'];
       }
     }).catch((err) => {
-      setWorking(false);
-      setAlertMsg({
-        message: `Error: ${err.response.data}`,
-        severity: 'warning',
-        showing: true
-      });
-      return false;
+      
+      return [`Error: ${err.response.data}`, 'warning'];
 
     });
 
@@ -141,10 +139,19 @@ const BlogLogin = () => {
       });
 
       setAlertMsg({
-        message: 'Email verification is sent succesfully, go and verify!',
-        severity: 'success',
+        message: response[0],
+        severity: response[1],
         showing: true
       });
+      setWorking(false);
+    }
+    else{
+      setAlertMsg({
+        message: 'Something went wrong!',
+        severity: 'warning',
+        showing: true
+      });
+      setWorking(false);
     }
 
 
@@ -225,7 +232,7 @@ const BlogLogin = () => {
                     </TabPanel>
 
                     <TabPanel value='2'>
-                      <Box component='form'>
+                      <Box component='form' method='POST'>
                         <FormControl onChange={handleSignUpChange} sx={{ width: '80%' }}>
                           <TextField required id='fName' name='fName' label='First name' variant='standard' value={verify.fName} />
                           <TextField required id='lName' name='lName' label='Last name' variant='standard' value={verify.lName} />
