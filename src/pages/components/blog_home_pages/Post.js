@@ -68,7 +68,7 @@ const Post = (props) => {
             </Container>
         ) : (
             <>
-                <Card key={post} sx={{ ml: {xs:'10%', md:'20%', lg:'30%'}, mr: {xs:'10%', md:'20%', lg:'30%'}, mt:'1vh' }}>
+                <Card key={post} sx={{ ml: { xs:'1vh', lg:'20%'}, mr: {xs:'1vh', lg:'20%'}, mt:'1vh' }}>
                     <CardContent >
                         <Typography variant='h4' gutterBottom >{post.title}</Typography>
                         <Typography variant='subtitle1' sx={{color: '#A4A4A4'}}>Created by {post.author.fName}, {convertTime(post.createdAt)}</Typography>
