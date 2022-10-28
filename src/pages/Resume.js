@@ -6,7 +6,7 @@ const Resume = () => {
 
     return(
     <>
-    <h1>This is working as well</h1>
+    <h1>Still working on this, other more detailed stuff in the background that needs tinkering..</h1>
     </>
     );
 }

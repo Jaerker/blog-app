@@ -35,7 +35,7 @@ const SideNavbar = (props) => {
         <CardContent>
           <Typography align='center'><strong>Welcome {props.user.fName}!</strong></Typography>
           {props.backBtn && (
-            <Button sx={{ mt: '1vh' }} onClick={() => { window.history.back() }} variant='contained' color='warning' fullWidth>Go back</Button>
+            <Button sx={{ mt: '1vh' }} onClick={() => { window.location.assign('/blog'); }} variant='contained' color='warning' fullWidth>Go back to blog page</Button>
           )}
           <Button disabled={props.profileBtn} sx={{ mt: '1vh' }} component={Link} to={`/blog/user/${props.user._id}`} variant='contained' fullWidth>Profile</Button>
           <Button disabled={props.newPostBtn} sx={{ mt: '1vh' }} component={Link} to='/blog/post/newpost' variant='contained' fullWidth>Create new post</Button>
