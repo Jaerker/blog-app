@@ -16,35 +16,47 @@ const Home = () => {
 
     return (
         <>
-            <Typography gutterBottom variant='h1' align='center'>Welcome</Typography>
-            <Card sx={{ mr: '10%', ml: '10%' }}>
-                
-                    <CardContent>
+            <Typography gutterBottom sx={{fontSize:{xs:'4rem', md:'5rem'}}} align='center'>Välkommen</Typography>
+            <Card sx={{ mr: '5%', ml: '5%' }}>
+
+                <CardContent>
                     <Grid
-                    container
-                    spacing={2}
-                    direction={{ xs: 'column-reverse', md: 'row' }}>
-                        <Grid item xs={12} md={6}>
+                        container
+                        spacing={2}
+                        direction={'column'}>
+                        <Grid item xs={12} >
 
 
 
-                            <Typography variant='h2' align='center' gutterBottom>My short story</Typography>
-                            <Typography variant='body1' sx={{ mb: '1.5vh' }}>I grew up in a small town in Värmland, Sweden, called Sunne, with 4 siblings. I´ve been a bit crazy over computers ever since I completely locked down our first PC at around 8 years old when I was trying to be a hot shot hacker. A few years after that, I got the opportunity to learn a bit of coding in C++ by a good friend of mine and got hooked.</Typography>
+                            <Typography sx={{fontSize:{xs:'2rem', md:'4rem'}}}  align='center' gutterBottom>
+                                Allt om mig
+                            </Typography>
+                        </Grid>
 
-                            <Typography variant='body1' sx={{ mb: '1.5vh' }}>Due to personal reasons, I have never been able to go to do any longer studies on programming, although some smaller ones in C#. Hopefully I can show off my skills more over on this CV, or at least show that if I get the time and trust, I would be a valuable asset for a company.</Typography>
+                        <Grid item>
+                            <Typography sx={{fontSize:{xs:'1rem', md:'1.5rem'}, mb:'4vh'}}  >För tillfället så studerar jag på egen hand inom programmering och
+                                webbutveckling, samt ska studera upp mina gymnasiebetyg för möjlighet
+                                till YH utbildning inom systemutveckling, Apputveckling eller IoT,
+                                samtidigt som jag och min fru tar hand om 3 vilda ungar i Slottsbron!
+                                Mina intressen är teknik, musik, hembryggning av det mesta och
+                                matlagning/bakning!</Typography>
 
-                            <Typography variant='body1' gutterBottom>Right now I live in Sweden, been married since 2010 and I have 3 kids.</Typography>
+                            <Typography sx={{fontSize:{xs:'1rem', md:'1.5rem'}, mb:'4vh'}} >Mitt största intresse är just teknik och IT, så vare sig det är små eller
+                                större uppgifter jag får så ger jag verkligen allt jag kan för att sköta dom
+                                och lösa dom.</Typography>
 
+                            <Typography sx={{fontSize:{xs:'1rem', md:'1.5rem'}, mb:'4vh'}}>Är det också en ny uppgift som kommer så blir det som en nytändning i
+                                kroppen och man får ett extra driv att vilja lära sig och bli så bra som
+                                möjligt i ämnet!</Typography>
+
+                                <Typography sx={{fontSize:{xs:'1rem', md:'1.5rem'}, mb:'4vh'}} >Kolla gärna in min 'Blog API'! Registrera dig och se vad jag har gjort med väldigt lite tid och kunskap! Tänka sig vad man kan åstadkomma om man kan sitta med detta heltid.. </Typography>
 
                         </Grid>
-                        <Grid item xs={12} md={6} align='center'>
-                            <img src={profilePic} style={{ width: '20rem', borderRadius: '50%' }} />
 
-                        </Grid>
-                        </Grid>
-                    </CardContent>
+                    </Grid>
+                </CardContent>
 
-                
+
             </Card>
         </>);
 }

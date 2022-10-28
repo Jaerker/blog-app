@@ -34,6 +34,7 @@ const Post = (props) => {
         const val = new Date(year, month, day, hour, minute);
         return val.toDateString();
     }
+    
 
     useEffect(() => {
 
@@ -61,6 +62,8 @@ const Post = (props) => {
 
     }, []);
 
+    
+
     return (<>
         {loading ? (
             <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
@@ -71,7 +74,8 @@ const Post = (props) => {
                 <Card key={post} sx={{ ml: { xs:'1vh', lg:'20%'}, mr: {xs:'1vh', lg:'20%'}, mt:'1vh' }}>
                     <CardContent >
                         <Typography variant='h4' gutterBottom >{post.title}</Typography>
-                        <Typography variant='subtitle1' sx={{color: '#A4A4A4'}}>Created by {post.author.fName}, {convertTime(post.createdAt)}</Typography>
+                        <Typography variant='subtitle1' sx={{color: '#A4A4A4'}}>Created by {post.author.fName}</Typography> <Typography variant='subtitle2' sx={{color: '#A4A4A4'}}> {convertTime(post.createdAt)}</Typography>
+                        
                         <p>{post.content}</p>
 
 
