@@ -21,7 +21,7 @@ const Home = () => {
         <>
         <Container align='center'>
 
-            <Card sx={{ mr: '10%', ml: '10%', mt: '1vh', maxWidth:'75%' }}>
+            <Card sx={{ mr: {xs:'0', md:'10%', lg:'15%'}, ml: {xs:'0', md:'5%', lg:'15%'}, mt: '1vh' }}>
 
                 <CardContent>
                     <Grid
