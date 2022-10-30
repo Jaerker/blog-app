@@ -1,7 +1,6 @@
 
 import BlogPage from './pages/BlogPage';
 import Home from './pages/Home';
-import Resume from './pages/Resume';
 import Projects from './pages/Projects';
 
 import Navbar from './pages/components/Navbar';
@@ -33,7 +32,7 @@ const App = () => {
       <Helmet helmetData={helmetData}>
         <title>Jaerkers Resumé</title>
         <style>{`body { 
-            background-color: #3c344c;
+            background-color: #d9dad8;
             }`}</style>
       </Helmet>
 
@@ -49,10 +48,6 @@ const App = () => {
         <Route path='/projects' element={<>
           <Navbar values={{token, user}} isInBlogPage={false} />
           <Projects />
-        </>} />
-        <Route path='/resume' element={<>
-          <Navbar values={{token, user}} isInBlogPage={false} />
-          <Resume />
         </>} />
       </Routes>
 

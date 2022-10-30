@@ -36,7 +36,7 @@ const PostCard = (props) => {
         const [date, time] = value.split('T');
         const [year, month, day] = date.split('-');
         const [hour, minute, scrap] = time.split(':');
-        const val = new Date(year, month, day, hour, minute);
+        const val = new Date(year, month-1, day, hour, minute);
         return val.toDateString();
     }
 

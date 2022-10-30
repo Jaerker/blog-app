@@ -9,7 +9,7 @@ import UpperRightBtn from './navbar_components/UpperRightBtn';
 const Navbar = (props) => {
 
 
-    const normalPages = [{ tag: 'HOME', url: '/' }, { tag: 'RESUMÉ', url: '/resume' }, { tag: 'PROJECTS', url: '/projects' }];
+    const normalPages = [{ tag: 'HOME', url: '/' }, { tag: 'PROJECTS', url: '/projects' }];
 
     const [dropDownBar, setDropDownBar] = useState(null);
 

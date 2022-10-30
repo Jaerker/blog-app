@@ -179,10 +179,11 @@ const BlogLogin = () => {
             maxWidth: '40rem',
             textAlign: 'center',
           }}>
-
-          <img src={logo} alt="logo" />
-          <Collapse in={alertMsg.showing}>
-                      <Alert sx={{mb:'-1rem'}} onClose={() => {
+            <Container sx={{mb:'3vh'}}>
+          <img src={logo} alt="logo" style={{borderRadius:'50%'}} />
+          </Container>
+          <Collapse in={alertMsg.showing} sx={{mb:'-1.3vh'}}>
+                      <Alert  onClose={() => {
                         setAlertMsg((prevValue) => {
                           return {
                             ...prevValue,
@@ -191,10 +192,11 @@ const BlogLogin = () => {
                         })
                       }} severity={alertMsg.severity}>{alertMsg.message}</Alert>
                     </Collapse>
-          <Card
+          <Card 
 
             sx={{
-              textAlign: 'center'
+              textAlign: 'center',
+              mt:'1vh'
             }}>
             <CardContent>
 

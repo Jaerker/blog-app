@@ -31,7 +31,7 @@ const Profile = (props) => {
         const [date, time] = value.split('T');
         const [year, month, day] = date.split('-');
         const [hour, minute, scrap] = time.split(':');
-        const val = new Date(year, month, day, hour, minute);
+        const val = new Date(year, month - 1, day, hour, minute);
         return val.toDateString();
     }
 
@@ -60,10 +60,11 @@ const Profile = (props) => {
         fetchData().catch(console.error);
 
 
-     }, []);
+    }, []);
 
 
     return (<>
+        <Typography variant='h2' align='center'>Profile</Typography>
         {loading ? (
             <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
                 <CircularProgress />
@@ -71,14 +72,16 @@ const Profile = (props) => {
         ) : (
             <>
                 <Card sx={{ ml: { xs: '1vh', lg: '20%' }, mr: { xs: '1vh', lg: '20%' }, mt: '1vh' }}>
+                    <Container >
                     <CardContent >
-                        <Typography variant='h1' align='center'>Profile</Typography>
-                        <Typography variant='body1'>Name: {profile.fName} {profile.lName}</Typography>
-                        <Typography variant='body1'>Email: {profile.email}</Typography>
-                        <Typography variant='body1'>Account created: {convertTime(profile.date)} </Typography>
-                        <Typography variant='body1'>How many you follow: {profile.friends.length}</Typography>
-                        <Typography variant='body1'>How many posts you posted: {profile.posts.length}</Typography>
+
+                        <Typography variant='h6'>Name: {profile.fName} {profile.lName}</Typography>
+                        <Typography variant='h6'>Email: {profile.email}</Typography>
+                        <Typography variant='h6'>Account created: {convertTime(profile.date)} </Typography>
+                        <Typography variant='h6'>How many you follow: {profile.friends.length}</Typography>
+                        <Typography variant='h6'>How many posts you posted: {profile.posts.length}</Typography>
                     </CardContent >
+                    </Container>
                 </Card>
 
 
