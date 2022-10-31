@@ -15,14 +15,14 @@ const ExperienceCard = (props) => {
     return (
         <Grid item xs={12} >
             <Card >
-                <CardContent sx={{ backgroundColor: '#B8B8B8' }}>
+                <CardContent sx={{ backgroundColor: props.color}}>
                     <Grid container direction='row' spacing={2} alignItems='center' justifyContent='space-evenly' sx={{ mb: '2vh' }}>
-                        <Grid item >
+                        <Grid item xs={12} md={6} align='center' justify='center'>
                             <Button onClick={()=>{window.location.assign(props.url)}}>
-                            <img  src={props.img} style={{ maxWidth: '100%' }} />
+                            <img  src={props.img} style={{ maxWidth: props.maxWidth }} />
                             </Button>
                         </Grid>
-                        <Grid item align='center'>
+                        <Grid item xs={12} md={6} align='center' justify='center' >
                             <Typography variant='h5'><strong>{props.workPlace}</strong></Typography>
                             <Typography gutterBottom variant='h6' >{props.where}</Typography>
                             {props.workTitle?.map((title) => (
