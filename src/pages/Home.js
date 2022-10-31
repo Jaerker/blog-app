@@ -5,6 +5,8 @@ import systembolaget from '../static/img/systembolaget.png';
 import htmlCssJs from '../static/img/htmlcssjs-overview.png';
 import reactLogo from '../static/img/reactLogo.png';
 import cSharp from '../static/img/cSharp.svg';
+import mongoDBLogo from '../static/img/mongoDB.png';
+import nodeJSLogo from '../static/img/nodeJS.png';
 
 import {
     Card,
@@ -96,6 +98,29 @@ const Home = () => {
                                     content={['Pluggat upp programmering förr via Komvux. Kommer att studera upp mina gymnasiebetyg under 2023 för möjlighet att studera på yrkeshögskola inom systemutveckling eller, hellre, embedded programmering och lära mig IoT programmering.',
                                         'Det var C++ jag började med när jag var 15 år (2005) och sen så byggdes det vidare med C# och Python, samt Java, Xamarin (.NET MAUI nu), Kotlin och mer Javascript nu.']}
                                 />
+                                <ExperienceCard
+                                    maxWidth='100%'
+                                    color='#C4B1C4'
+                                    img={nodeJSLogo}
+                                    url='#'
+                                    workPlace='Node JS / Express JS'
+                                    where=''
+                                    workTitle={['']}
+                                    workedBetween=''
+                                    content={['Min backend på hemsidan är uppbyggd i ExpressJS och har fungerat fenomenalt!',
+                                    'Jag har försökt konstruera ett så Restfullt API som möjligt för min "blog post" del, så den ska vara någorlunda enkel att manövrera.',
+                                    'Kanske inte den snyggaste lösningen, men jag är otroligt glad över den funktionalitet jag än så länge har, och förhoppningsvis så kommer den vara ett litet roligt sidoprojekt framöver. ' ]} />
+                                <ExperienceCard
+                                    maxWidth='70%'
+                                    color='#C4B1C4'
+                                    img={mongoDBLogo}
+                                    url='#'
+                                    workPlace='MongoDB'
+                                    where=''
+                                    workTitle={['']}
+                                    workedBetween=''
+                                    content={['Databasen till hemsidan. Till mindre projekt så ser jag otroliga fördelar i flexibiliteten i att allt skickas i JSON filer, vilket är så smidigt att hantera här.',
+                                    'Jag har även suttit i MySQL och PostgresQL innan, men denna är jag för tillfället mer van med. Men som sagt, jag är också väldigt flexibel till vad som behöver utföras!']}/>
 
                                 
                             </Grid>
