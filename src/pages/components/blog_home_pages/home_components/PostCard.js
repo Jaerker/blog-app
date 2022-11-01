@@ -88,9 +88,8 @@ const PostCard = (props) => {
 }
 
                 </IconButton>
-                <IconButton sx={{ marginLeft: 'auto' }} >
-                    <AddCommentIcon />
-                </IconButton>
+                    <Typography variant='subtitle1' > {props.values.comments.length} </Typography><AddCommentIcon />
+                
 
             </CardActions>
         </Card>

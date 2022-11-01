@@ -12,6 +12,11 @@ import {
     Grid,
     CardActions,
     IconButton,
+    TableContainer,
+    Paper,
+    TableRow,
+    TableHead,
+    TableCell
 
 } from '@mui/material';
 
@@ -63,24 +68,77 @@ const Profile = (props) => {
     }, []);
 
 
+
     return (<>
-        <Typography variant='h2' align='center'>Profile</Typography>
+        
         {loading ? (
             <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
                 <CircularProgress />
             </Container>
         ) : (
             <>
-                <Card sx={{ ml: { xs: '1vh', lg: '20%' }, mr: { xs: '1vh', lg: '20%' }, mt: '1vh' }}>
+                <Card sx={{ ml: { xs: '1vh', lg: '20%' }, mr: { xs: '1vh', lg: '20%' }, mt: '1vh', backgroundColor:'#B8B8B8' }} >
                     <Container >
-                    <CardContent >
+                        <CardContent >
+                        <Typography variant='h2' align='center' gutterBottom>Profile</Typography>
 
-                        <Typography variant='h6'>Name: {profile.fName} {profile.lName}</Typography>
-                        <Typography variant='h6'>Email: {profile.email}</Typography>
-                        <Typography variant='h6'>Account created: {convertTime(profile.date)} </Typography>
-                        <Typography variant='h6'>How many you follow: {profile.friends.length}</Typography>
-                        <Typography variant='h6'>How many posts you posted: {profile.posts.length}</Typography>
-                    </CardContent >
+                            <TableContainer component={Paper}>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography variant='h6'> Name: </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography variant='h6'>{profile.fName} {profile.lName}</Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography variant='h6'>Email: </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography variant='h6'>{profile.email}</Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography variant='h6'>Username: </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography variant='h6'>{profile.username}</Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography variant='h6'>Account created: </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography variant='h6'>{convertTime(profile.date)} </Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                    <Typography variant='h6'>How many you follow: </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                    <Typography variant='h6'>{profile.friends.length}</Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                    <Typography variant='h6'>How many posts you posted: </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                    <Typography variant='h6'>{profile.posts.length}</Typography>
+                                    </TableCell>
+                                </TableRow>
+                            </TableContainer>
+
+
+
+
+                            
+                            
+                        </CardContent >
                     </Container>
                 </Card>
 

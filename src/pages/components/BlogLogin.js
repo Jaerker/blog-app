@@ -131,10 +131,11 @@ const BlogLogin = () => {
     if (response) {
 
       setVerify({
-        fName: "",
-        lName: "",
-        email: "",
-        password: ""
+        fName:    '',
+        lName:    '',
+        email:    '',
+        username: '',
+        password: ''
       });
 
       setAlertMsg({
@@ -232,6 +233,7 @@ const BlogLogin = () => {
                         <FormControl onChange={handleSignUpChange} sx={{ width: '80%' }}>
                           <TextField required id='fName' name='fName' label='First name' variant='standard' value={verify.fName} />
                           <TextField required id='lName' name='lName' label='Last name' variant='standard' value={verify.lName} />
+                          <TextField required id='username' name='username' label='Username' variant='standard' value={verify.username} />
                           <TextField required id='signUpEmail' name='email' label='Email' variant='standard' value={verify.email} />
                           <TextField required id='signUpPassword' name='password' label='Password' variant='standard' type='password' value={verify.password} />
                           <TextField required id='signUpPasswordCheck' name='passwordAgain' label='Re-type Password' variant='standard' type='password' />

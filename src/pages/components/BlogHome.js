@@ -20,6 +20,7 @@ import NewPost from './blog_home_pages/NewPost';
 
 
 
+
 const BlogHome = (props) => {
 
 
@@ -66,7 +67,7 @@ const BlogHome = (props) => {
 
                 <Grid item xs={12} md={9}>
 
-                  <Post token={token} />
+                  <Post token={token} user={user} />
 
                 </Grid>
                 <Grid item xs='auto' md={3} sx={{ mt: '1vh', ml: { xs: '10%', md: '0' }, mr: { xs: '10%', md: '0' } }} >
