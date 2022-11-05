@@ -16,7 +16,9 @@ import {
     Paper,
     TableRow,
     TableHead,
-    TableCell
+    TableCell,
+    Table,
+    TableBody
 
 } from '@mui/material';
 
@@ -26,7 +28,8 @@ import AddCommentIcon from '@mui/icons-material/AddComment';
 
 const Profile = (props) => {
 
-    const profileUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/users';
+    //const profileUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/users';
+    const profileUrl = 'http://localhost:3033/api/blog/users';
 
     const [loading, setLoading] = useState(true);
 
@@ -70,22 +73,24 @@ const Profile = (props) => {
 
 
     return (<>
-        
+
         {loading ? (
             <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
                 <CircularProgress />
             </Container>
         ) : (
             <>
-                <Card sx={{ ml: { xs: '1vh', lg: '20%' }, mr: { xs: '1vh', lg: '20%' }, mt: '1vh', backgroundColor:'#B8B8B8' }} >
-                    <Container >
-                        <CardContent >
-                        <Typography variant='h2' align='center' gutterBottom>Profile</Typography>
 
-                            <TableContainer component={Paper}>
+                <Container sx={{ mt: '1vh', maxWidth:{xs:'100%', md:'95%', lg:'72%'} }}>
+
+                    <Typography variant='h2' align='center' gutterBottom >Profile</Typography>
+
+                    <TableContainer component={Paper}>
+                        <Table>
+                            <TableBody>
                                 <TableRow>
                                     <TableCell>
-                                        <Typography variant='h6'> Name: </Typography>
+                                        <Typography variant='h6' > Name: </Typography>
                                     </TableCell>
                                     <TableCell>
                                         <Typography variant='h6'>{profile.fName} {profile.lName}</Typography>
@@ -117,30 +122,31 @@ const Profile = (props) => {
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>
-                                    <Typography variant='h6'>How many you follow: </Typography>
+                                        <Typography variant='h6'>How many you follow: </Typography>
                                     </TableCell>
                                     <TableCell>
-                                    <Typography variant='h6'>{profile.friends.length}</Typography>
+                                        <Typography variant='h6'>{profile.friends.length}</Typography>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>
-                                    <Typography variant='h6'>How many posts you posted: </Typography>
+                                        <Typography variant='h6'>How many posts you posted: </Typography>
                                     </TableCell>
                                     <TableCell>
-                                    <Typography variant='h6'>{profile.posts.length}</Typography>
+                                        <Typography variant='h6'>{profile.posts.length}</Typography>
                                     </TableCell>
                                 </TableRow>
-                            </TableContainer>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
 
 
 
 
-                            
-                            
-                        </CardContent >
-                    </Container>
-                </Card>
+
+
+                </Container>
+
 
 
             </>)}

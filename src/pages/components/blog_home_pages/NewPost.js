@@ -19,7 +19,9 @@ import { Box } from '@mui/system';
 
 const NewPost = (props) => {
 
-  const postUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/posts';
+//  const postUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/posts';
+  const postUrl = 'http://localhost:3033/api/blog/posts';
+
 
   const [newPost, setNewPost] = useState({ title: '', content: '' });
   const [loading, setLoading] = useState(false);

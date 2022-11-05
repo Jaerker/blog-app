@@ -29,7 +29,7 @@ const ExperienceCard = (props) => {
                                 <Typography key={title} gutterBottom variant='h6' > {title}</Typography>
                             ))}
 
-                            <Typography paragraph variant='subtitle1' color={'#FFF'}>{props.workedBetween}</Typography>
+                            <Typography paragraph variant='subtitle1' color={'#525252'}><strong>{props.workedBetween}</strong></Typography>
                         </Grid>
 
                     </Grid>

@@ -24,7 +24,7 @@ const App = () => {
 
   const user = Token?.user;
 
-
+//  #d9dad8
   return (
     <>
 
@@ -32,7 +32,7 @@ const App = () => {
       <Helmet helmetData={helmetData}>
         <title>Jaerkers Resumé</title>
         <style>{`body { 
-            background-color: #d9dad8;
+            background-color: #858585;
             }`}</style>
       </Helmet>
 

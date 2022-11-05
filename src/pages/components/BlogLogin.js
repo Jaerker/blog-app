@@ -25,8 +25,8 @@ import {
 
 const BlogLogin = () => {
 
-  const dbUrl = 'https://blog-api-production-68d6.up.railway.app/api/auth';
-  //const dbUrl = 'http://localhost:3033/api/auth';
+  //const dbUrl = 'https://blog-api-production-68d6.up.railway.app/api/auth';
+  const dbUrl = 'http://localhost:3033/api/auth';
 
   const [alertMsg, setAlertMsg] = useState({
     message: 'Verification mail has ben sent to you!',

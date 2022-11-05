@@ -22,7 +22,9 @@ import { Box } from '@mui/system';
 
 const PostCard = (props) => {
 
-    const postUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/posts';
+//    const postUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/posts';
+    const postUrl = 'http://localhost:3033/api/blog/posts';
+
 
     const [like, setLike] = useState(props.values.likes.includes(props.userId));
     const [loading, setLoading] = useState(false);
@@ -41,6 +43,7 @@ const PostCard = (props) => {
     }
 
     const likeBtnPressed = async () => {
+
         setLoading(true);
         fetch(`${postUrl}/${props.values._id}/like`, {
             method: 'POST',
@@ -56,9 +59,9 @@ const PostCard = (props) => {
 
         <Card key={props.values._id}>
             <CardContent >
-                <Typography color='text.secondary' sx={{ fontSize: 13 }} gutterBottom>{convertTime(props.values.createdAt)}</Typography>
+                <Typography color='text.secondary' sx={{ fontSize: 13 }} gutterBottom>Posted {convertTime(props.values.createdAt)} by {props.values.author.username}</Typography>
                 <Container>
-                <Typography component={Link} to={`post/${props.values._id}`} sx={{textDecoration:'none', color:'#000', ":hover": {color:'#A9A9A9'}}} variant='h4' > {props.values.title} </Typography>
+                <Typography component={Link} to={`/blog/post/${props.values._id}`} sx={{textDecoration:'none', color:'#000', ":hover": {color:'#A9A9A9'}}} variant='h4' > {props.values.title} </Typography>
                 </Container>
                 <Typography sx={{ mt: '1vh', ml: '2vh', mr: '2vh' }}>
                     {props.values.content.length > 100 ? (

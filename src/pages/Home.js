@@ -33,8 +33,7 @@ const Home = () => {
                 direction={{ xs: 'column', md: 'row' }}
                 >
                 <Grid item xs={12} md={6} sx={{ mt: '1vh', mb: '3rem' }} align='center'>
-                    <Card sx={{ mt: '1vh', mr: { xs: '1vh', md: '10%' }, ml: { xs: '1vh', md: '2%' } }}>
-                        <CardContent sx={{ backgroundColor: '#858585' }}>
+                    
 
                             <img src={profilePic} style={{ width: '75%', maxWidth: '15rem', borderRadius: '50%' }} />
                             <Container >
@@ -44,8 +43,7 @@ const Home = () => {
                                 <Typography variant='h6'>0707 - 36 47 57</Typography>
                             </Container>
 
-                        </CardContent>
-                    </Card>
+
 
                     <Grid
                         container
@@ -68,10 +66,11 @@ const Home = () => {
                                     img={htmlCssJs}
                                     url='#'
                                     workPlace='Webb utveckling'
-                                    where='HTML, CSS, JavaScript'
-                                    workTitle={['']}
+                                    where=''
+                                    workTitle={['Udemy kurs']}
                                     workedBetween=''
-                                    content={['Jag må inte vara en designer, men med rätt team och driv så är det inga problem.',
+                                    content={['Jag må inte vara en designer, men om någon designar så bygger jag gärna ihop! ',
+                                    'Nyligen så genomgick jag en utbildning via Udemy inriktad på React, där jag fick en väldig förfräschning inom dessa ämnen',
                                         'Anser mig själv vara mer inriktad på backend och dom tyngre ämnena, men denna biten är inga problem.']} />
 
                                 <ExperienceCard
@@ -83,7 +82,7 @@ const Home = () => {
                                     where=''
                                     workTitle={['']}
                                     workedBetween=''
-                                    content={['Hela denna sidan är uppbyggd på React, med Material UI som byggstenar.',
+                                    content={['Hela denna sidan är uppbyggd på React, med Material UI som byggstenar. I min utbildning som jag gått igenom så fick jag en väldigt bra förståelse för grundpelarna i att sätta ihop en hemsida.',
                                         'Personligen så ser jag fördelar i React, men har använt mig av Django innan också, med uppskattade resultat, samt ASP.NET som jag fortfarande lär mig.']}
                                 />
                                 <ExperienceCard
@@ -91,9 +90,9 @@ const Home = () => {
                                     color='#C4B1C4'
                                     img={cSharp}
                                     url='#'
-                                    workPlace='C#'
+                                    workPlace='Kurser utförda: '
                                     where=''
-                                    workTitle={['Kurser utförda: ', 'Programmering 1', 'Programmering 2']}
+                                    workTitle={['', 'Programmering 1', 'Programmering 2']}
                                     workedBetween='2015 ->'
                                     content={['Pluggat upp programmering förr via Komvux. Kommer att studera upp mina gymnasiebetyg under 2023 för möjlighet att studera på yrkeshögskola inom systemutveckling eller, hellre, embedded programmering och lära mig IoT programmering.',
                                         'Det var C++ jag började med när jag var 15 år (2005) och sen så byggdes det vidare med C# och Python, samt Java, Xamarin (.NET MAUI nu), Kotlin och mer Javascript nu.']}

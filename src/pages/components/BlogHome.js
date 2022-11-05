@@ -58,8 +58,25 @@ const BlogHome = (props) => {
               </Grid>
             </>
           } />
+          <Route path='/:alertMsg' element={
+            <>
+              <Grid container
+                spacing={1}
+                direction={{ xs: 'column-reverse', md: 'row' }}>
 
-          <Route path='/post/:postId' element={
+                <Grid item xs={12} md={9}>
+
+                  <Home token={token} user={user} />
+
+                </Grid>
+                <Grid item xs='auto' md={3} sx={{ mt: '1vh', ml: { xs: '10%', md: '0' }, mr: { xs: '10%', md: '0' } }} >
+                  <SideNavbar user={user} backBtn={false} profileBtn={false} newPostBtn={false} />
+                </Grid>
+              </Grid>
+            </>
+          } />
+
+          <Route path='post/:postId' element={
             <>
               <Grid container
                 spacing={1}
