@@ -262,31 +262,31 @@ const Post = (props) => {
                                         }}
                                     >
                                         {loading ? (
-                                        <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
-                                            <CircularProgress />
-                                        </Container>
-                                    ) : (
-                                        <Grid container align='center' justifyContent='center' sx={{ minWidth: { xs: '25rem' }, minHeight: { xs: '10rem' } }}>
-                                        <Grid item sx={{ mt: '2vh' }}>
-                                            <Typography variant='h5' >Do you really want to remove the post?</Typography>
+                                            <Container sx={{ position: 'fixed', top: '50%', left: '50%' }} >
+                                                <CircularProgress />
+                                            </Container>
+                                        ) : (
+                                            <Grid container align='center' justifyContent='center' sx={{ minWidth: { xs: '25rem' }, minHeight: { xs: '10rem' } }}>
+                                                <Grid item sx={{ mt: '2vh' }}>
+                                                    <Typography variant='h5' >Do you really want to remove the post?</Typography>
 
-                                        </Grid>
-                                        <Grid container item direction='row' justifyContent='space-around' >
-                                            <Grid item xs={6}>
-                                                <Button sx={{ width: '75%', height: '75%' }} variant='contained' color='error' id='yes' onClick={deleteBtn}>YES</Button>
+                                                </Grid>
+                                                <Grid container item direction='row' justifyContent='space-around' >
+                                                    <Grid item xs={6}>
+                                                        <Button sx={{ width: '75%', height: '75%' }} variant='contained' color='error' id='yes' onClick={deleteBtn}>YES</Button>
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        <Button sx={{ width: '75%', height: '75%' }} variant='contained' id='no' onClick={handlePopup} >NO</Button>
+                                                    </Grid>
+
+                                                </Grid>
+
                                             </Grid>
-                                            <Grid item xs={6}>
-                                                <Button sx={{ width: '75%', height: '75%' }} variant='contained' id='no' onClick={handlePopup} >NO</Button>
-                                            </Grid>
+                                        )}
 
-                                        </Grid>
-
-                                    </Grid>  
-                                    )}
-                                        
 
                                     </Popover>
-                                    
+
 
 
                                 </Backdrop>{/* The item that turns screen dark */}
