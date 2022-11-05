@@ -28,8 +28,8 @@ import AddCommentIcon from '@mui/icons-material/AddComment';
 
 const Profile = (props) => {
 
-    //const profileUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/users';
-    const profileUrl = 'http://localhost:3033/api/blog/users';
+    const profileUrl = 'https://blog-api-production-68d6.up.railway.app/api/blog/users';
+    //const profileUrl = 'http://localhost:3033/api/blog/users';
 
     const [loading, setLoading] = useState(true);
 

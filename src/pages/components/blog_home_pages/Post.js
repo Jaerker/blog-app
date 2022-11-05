@@ -42,8 +42,8 @@ const Post = (props) => {
     //Comment includes: content and user, only need to send content
 
     const { postId } = useParams();
-    //const postBase = 'https://blog-api-production-68d6.up.railway.app/api/blog/posts';
-    const postBase = 'http://localhost:3033/api/blog/posts';
+    const postBase = 'https://blog-api-production-68d6.up.railway.app/api/blog/posts';
+    //const postBase = 'http://localhost:3033/api/blog/posts';
 
     const postUrl = `${postBase}/${postId}`
 
