@@ -60,19 +60,23 @@ const Post = (props) => {
                 if (response.ok) {
                     return response.json();
                 }
-
-                throw response;
-            }).then(res => {
-
-                setPost(res);
+                else{
+                    return null;
+                }
 
             }).catch(e => {
                 console.error("Error fetching data: ", e);
-            }).finally(() => {
+            }).then(res => {
 
+                if(res !== null){
+                setPost(res);
                 setLoading(false);
+                }
+                else{
+                    window.location.assign('/blog');
+                }
 
-            });
+            })
 
     }
 
@@ -215,8 +219,8 @@ const Post = (props) => {
 
 
     useEffect(() => {
-        fetchData().catch(console.error);
-        console.log(post)
+        fetchData().catch((console.error));
+
     }, []);
 
 
