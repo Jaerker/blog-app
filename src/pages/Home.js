@@ -171,8 +171,8 @@ const Home = () => {
                                     where='Halmstad'
                                     workTitle={['Kundtjänst', 'Kvalité och miljösamordnare', 'Tillbehörsmonterare']}
                                     workedBetween='December 2021 - September 2022'
-                                    content={['Hade först hand om tillbehörsmontering till bilar, därefter kundtjänst gällande återförsäljare av BMW och MINI. Jag såg till att bilar som kom från Tyskland hamnade rätt i D365 från Båten till Bilfirman, kollade så det inte vara några avvikelser på bilen, fick kolla upp om bilens batteri behövde underhållas eller inte innan den skulle köras iväg till återförsäljare, samt mycket mer administrativa uppgifter.',
-                                        'Efter detta, specifikt från September 2020, så började jag som Miljö och Kvalitésamordnare. Det inbegrep:',
+                                    content={['Arbetade först inne i tillbehörsmonteringsavdelningen, därefter kundtjänst gällande återförsäljare av BMW och MINI. Jag såg till att bilar som kom från Tyskland hamnade rätt i D365 från Båten till Bilfirman, kollade så det inte vara några avvikelser på bilen, fick kolla upp om bilens batteri behövde underhållas eller inte innan den skulle köras iväg till återförsäljare, samt mycket mer administrativa uppgifter.',
+                                        'Efter detta, specifikt från September 2020, så började jag som assisterande Miljö och Kvalitésamordnare. Det inbegrep:',
                                     ]} table='<ul> <li>Hantering av skadade bilar orsakade, eller upptäckta, i vår vårdnad eller i vårt område.</li><li>Introducera människor till arbetet och informera om vad dom skulle göra.</li><li>Utbildning för samtliga i företaget om hur vi hanterar fordon på området, och hur vi hanterar underhåll av både vanliga bilar och elbilar.</li><li>Fakturering, mestadels mindre utgifter, men även större reklamationer som får undersökas.</li></ul>' />
 
                                 <ExperienceCard
