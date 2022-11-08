@@ -1,30 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+
 
 import {
     Container,
-    Card,
-    CardContent,
-    CardHeader,
     Typography,
     CircularProgress,
-    Grid,
-    CardActions,
-    IconButton,
     TableContainer,
     Paper,
     TableRow,
-    TableHead,
     TableCell,
     Table,
     TableBody
 
 } from '@mui/material';
 
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import AddCommentIcon from '@mui/icons-material/AddComment';
+
 
 const Profile = (props) => {
 

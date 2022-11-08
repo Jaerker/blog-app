@@ -9,18 +9,16 @@ import mongoDBLogo from '../static/img/mongoDB.png';
 import nodeJSLogo from '../static/img/nodeJS.png';
 
 import {
-    Card,
-    CardContent,
-    Grid, Typography
+    Grid, 
+    Typography
 } from '@mui/material';
 
 import BusinessCenterRoundedIcon from '@mui/icons-material/BusinessCenterRounded';
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 
-import React, { useState } from 'react';
+import React from 'react';
 import ExperienceCard from './components/home_components/ExperienceCard';
 import { Container } from '@mui/system';
-import { Link } from 'react-router-dom';
 
 
 const Home = () => {

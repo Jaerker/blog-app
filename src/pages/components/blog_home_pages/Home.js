@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
 
 import {
     Container,
-    Card,
-    CardContent,
-    Typography,
     CircularProgress,
     Grid,
-    CardActions,
-    IconButton,
-
 } from '@mui/material';
 
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import AddCommentIcon from '@mui/icons-material/AddComment';
+
 import PostCard from './home_components/PostCard';
 import AlertMessage from './components/AlertMessage';
 import { useParams } from 'react-router-dom';

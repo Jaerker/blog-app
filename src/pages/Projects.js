@@ -15,6 +15,7 @@ import mmScreen1 from '../static/img/medieval_malfunction/screen1.png';
 import mmScreen2 from '../static/img/medieval_malfunction/screen2.png';
 import mmScreen3 from '../static/img/medieval_malfunction/screen3.png';
 import mmTitleScreen from '../static/img/medieval_malfunction/titleScreen.png';
+import ProjectCard from './components/projects_components/ProjectCard';
 
 //<Grid item xs={12} md={6}></Grid>
 
@@ -232,45 +233,24 @@ const Projects = () => {
 
 
 
-                    <Container>
-                        <Card sx={{ maxWidth: 250 }}>
-                            <CardMedia
-                                component='img'
-                                height='100%'
-
-                                image={lolLekolar}
-                                alt='Höna logo för Lek o Lär'
-                            />
-                            <CardContent>
-                                <Typography variant='subtitle1'>Enklare android spel som jag gjorde till mina barn i Unity.</Typography>
-                            </CardContent>
-                            <CardActions sx={{ justifyContent: 'center' }}>
-                                <Button name='lolBtn' size='small' onClick={btnClick}>LÄS MER</Button>
-                            </CardActions>
-                        </Card>
-                    </Container>
+                    <ProjectCard 
+                        logo={lolLekolar}
+                        alt='kyckling logga'
+                        content='Enklare android spel som jag gjorde till mina barn i Unity.'
+                        btnName='lolBtn'
+                        btnClick={btnClick}/>
                 </Grid>
                 <Grid item xs={12} md={4}>
 
 
+                <ProjectCard 
+                        logo={mmLogo}
+                        alt='Medieval Malfunction Logga'
+                        content='Game jam spel gjort i Godot av mig och kompis.'
+                        btnName='mmBtn'
+                        btnClick={btnClick}/>
 
-                    <Container>
-                        <Card sx={{ maxWidth: 250 }}>
-                            <CardMedia
-                                component='img'
-                                height='100%'
-
-                                image={mmLogo}
-                                alt='Höna logo för Lek o Lär'
-                            />
-                            <CardContent>
-                                <Typography variant='subtitle1'>Game jam spel gjort i Godot av mig och kompis.</Typography>
-                            </CardContent>
-                            <CardActions sx={{ justifyContent: 'center' }}>
-                                <Button name='mmBtn' size='small' onClick={btnClick}>LÄS MER</Button>
-                            </CardActions>
-                        </Card>
-                    </Container>
+                    
                 </Grid>
             </Grid>
 

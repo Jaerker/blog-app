@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import { Link } from 'react-router-dom';
 
@@ -9,7 +8,6 @@ import {
     CardContent,
     Typography,
     CircularProgress,
-    Grid,
     CardActions,
     IconButton,
 
@@ -18,7 +16,6 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddCommentIcon from '@mui/icons-material/AddComment';
-import { Box } from '@mui/system';
 
 
 const PostCard = (props) => {

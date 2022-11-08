@@ -1,3 +1,4 @@
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from '@mui/material';
 import React from 'react';
 
 const ProjectCard = (props) => {
@@ -15,10 +16,10 @@ const ProjectCard = (props) => {
                     alt={props.alt}
                 />
                 <CardContent>
-                    <Typography variant='subtitle1'>{props.cardContent}</Typography>
+                    <Typography variant='subtitle1'>{props.content}</Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: 'center' }}>
-                    <Button  onClick={(e) => { setAnchorEl(e.currentTarget) }}>LÄS MER</Button>
+                    <Button name={props.btnName} onClick={props.btnClick}>LÄS MER</Button>
                 </CardActions>
             </Card>
         </Container>
