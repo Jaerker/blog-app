@@ -21,6 +21,7 @@ import {
     Popover,
     Backdrop,
     Table,
+    CardActions,
 } from '@mui/material';
 
 
@@ -241,6 +242,8 @@ const Post = (props) => {
                             <Typography key={i} variant='h6' sx={{ mb: '1.5vh' }}>{section}</Typography>
                         ))}
 
+                        <CardActions>
+
                         {props.user._id === post.author._id ? (
                             <>
                                 <Button id='firstBtn' color='error' variant='contained' onClick={handlePopup}>
@@ -295,6 +298,7 @@ const Post = (props) => {
                         ) : (<></>
 
                         )}
+                        </CardActions>
 
 
 

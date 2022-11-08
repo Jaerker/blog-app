@@ -87,7 +87,7 @@ const NewPost = (props) => {
 
 
   return (<>
-    <Typography align='center' variant='h2'>New post</Typography>
+    <Typography align='center' variant='h2' gutterBottom>New post</Typography>
     <Container align='center'>
       <Collapse in={alertMsg.showing} sx={{ ml: { xs: '1vh', lg: '20%' }, mr: { xs: '1vh', lg: '20%' }, mb: '-1.3vh' }}>
         <Alert onClose={() => {
@@ -101,7 +101,7 @@ const NewPost = (props) => {
       </Collapse>
     </Container>
     {loading ? (
-      <Container sx={{ top: '50%', left: '50%' }} >
+      <Container sx={{position: 'fixed', top: '50%', left: '50%' }} >
         <CircularProgress />
       </Container>
     ) : (
