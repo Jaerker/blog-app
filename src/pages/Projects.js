@@ -15,7 +15,13 @@ import mmScreen1 from '../static/img/medieval_malfunction/screen1.png';
 import mmScreen2 from '../static/img/medieval_malfunction/screen2.png';
 import mmScreen3 from '../static/img/medieval_malfunction/screen3.png';
 import mmTitleScreen from '../static/img/medieval_malfunction/titleScreen.png';
+
+import calculatorLogo from '../static/img/calculator.png';
+import calculatorLogoSmall from '../static/img/calculatorSmall.png';
+
 import ProjectCard from './components/projects_components/ProjectCard';
+import Calculator from './components/projects_components/Calculator';
+
 
 //<Grid item xs={12} md={6}></Grid>
 
@@ -121,7 +127,8 @@ const Projects = () => {
                             <Button fullWidth variant='contained' onClick={() => { setAnchorEl(null); }}>GÅ TILLBAKA</Button>
                         </CardActions>
                     </Grid>
-                </Grid>)
+                </Grid>
+                )
 
             case 'mmBtn':
                 return (
@@ -208,6 +215,9 @@ const Projects = () => {
                     </Grid>
                 )
 
+            case 'calcBtn':
+                return (<Calculator />)
+
             default:
                 break;
         }
@@ -230,9 +240,6 @@ const Projects = () => {
         <>
             <Grid container spacing={1} align='center' sx={{ mt: '1vh' }}>
                 <Grid item xs={12} md={4}>
-
-
-
                     <ProjectCard 
                         logo={lolLekolar}
                         alt='kyckling logga'
@@ -240,17 +247,23 @@ const Projects = () => {
                         btnName='lolBtn'
                         btnClick={btnClick}/>
                 </Grid>
+
                 <Grid item xs={12} md={4}>
-
-
                 <ProjectCard 
                         logo={mmLogo}
                         alt='Medieval Malfunction Logga'
                         content='Game jam spel gjort i Godot av mig och kompis.'
                         btnName='mmBtn'
                         btnClick={btnClick}/>
+                </Grid>
 
-                    
+                <Grid item xs={12} md={4}>
+                <ProjectCard 
+                        logo={calculatorLogo}
+                        alt='Kalkylator'
+                        content='Enkel kalkylator gjord i React'
+                        btnName='calcBtn'
+                        btnClick={btnClick}/>
                 </Grid>
             </Grid>
 

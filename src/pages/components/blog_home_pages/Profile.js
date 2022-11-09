@@ -75,52 +75,52 @@ const Profile = (props) => {
 
                     <Typography variant='h2' align='center' gutterBottom >Profile</Typography>
 
-                    <TableContainer component={Paper}>
+                    <TableContainer component={Paper} sx={{ml:'-1.5vh'}}>
                         <Table>
                             <TableBody>
                                 <TableRow>
                                     <TableCell>
-                                        <Typography variant='h6' > Name: </Typography>
+                                        <Typography variant='body1' > Name: </Typography>
                                     </TableCell>
                                     <TableCell>
-                                        <Typography variant='h6'>{profile.fName} {profile.lName}</Typography>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>
-                                        <Typography variant='h6'>Email: </Typography>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Typography variant='h6'>{profile.email}</Typography>
+                                        <Typography sx={{fontSize:'120%'}}>{profile.fName} {profile.lName}</Typography>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>
-                                        <Typography variant='h6'>Username: </Typography>
+                                        <Typography variant='body1'>Email: </Typography>
                                     </TableCell>
                                     <TableCell>
-                                        <Typography variant='h6'>{profile.username}</Typography>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>
-                                        <Typography variant='h6'>Account created: </Typography>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Typography variant='h6'>{convertTime(profile.date)} </Typography>
+                                        <Typography sx={{fontSize:'120%'}}>{profile.email}</Typography>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>
-                                        <Typography variant='h6'>How many you follow: </Typography>
+                                        <Typography variant='body1'>Username: </Typography>
                                     </TableCell>
                                     <TableCell>
-                                        <Typography variant='h6'>{profile.friends.length}</Typography>
+                                        <Typography sx={{fontSize:'120%'}}>{profile.username}</Typography>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>
-                                        <Typography variant='h6'>How many posts you posted: </Typography>
+                                        <Typography variant='body1'>Account created: </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography sx={{fontSize:'120%'}}>{convertTime(profile.date)} </Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography variant='body1'>How many you follow: </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography sx={{fontSize:'120%'}}>{profile.friends.length}</Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography variant='body1'>How many posts you posted: </Typography>
                                     </TableCell>
                                     <TableCell>
                                         <Typography variant='h6'>{profile.posts.length}</Typography>

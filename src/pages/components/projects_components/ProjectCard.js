@@ -7,10 +7,9 @@ const ProjectCard = (props) => {
 
     return (
         <Container>
-            <Card sx={{ maxWidth: 250 }}>
+            <Card sx={{display:'flex', flexDirection:'column', justifyContent:'space-between', maxWidth: 250, height: 500}}>
                 <CardMedia
                     component='img'
-                    height='100%'
 
                     image={props.logo}
                     alt={props.alt}
@@ -18,8 +17,8 @@ const ProjectCard = (props) => {
                 <CardContent>
                     <Typography variant='subtitle1'>{props.content}</Typography>
                 </CardContent>
-                <CardActions sx={{ justifyContent: 'center' }}>
-                    <Button name={props.btnName} onClick={props.btnClick}>LÄS MER</Button>
+                <CardActions sx={{ justifyContent: 'center', alignItems:'end',  }}>
+                    <Button variant='outlined' fullWidth name={props.btnName} onClick={props.btnClick}>LÄS MER</Button>
                 </CardActions>
             </Card>
         </Container>
