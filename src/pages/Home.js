@@ -7,9 +7,10 @@ import reactLogo from '../static/img/reactLogo.png';
 import cSharp from '../static/img/cSharp.svg';
 import mongoDBLogo from '../static/img/mongoDB.png';
 import nodeJSLogo from '../static/img/nodeJS.png';
+import tsLogo from '../static/img/ts-logo.png';
 
 import {
-    Grid, 
+    Grid,
     Typography
 } from '@mui/material';
 
@@ -29,17 +30,17 @@ const Home = () => {
 
             <Grid container
                 direction={{ xs: 'column', md: 'row' }}
-                >
+            >
                 <Grid item xs={12} md={6} sx={{ mt: '1vh', mb: '3rem' }} align='center'>
-                    
 
-                            <img src={profilePic} style={{ width: '75%', maxWidth: '15rem', borderRadius: '50%' }} />
-                            <Container >
-                                <Typography variant='h4'>Johan Jakberger</Typography>
-                                <Typography variant='h6'>johanjakberger@gmail.com</Typography>
-                                <Typography variant='h6'>Grums, Värmland, Sweden</Typography>
-                                <Typography variant='h6'>0707 - 36 47 57</Typography>
-                            </Container>
+
+                    <img src={profilePic} alt='Profile picture' style={{ width: '75%', maxWidth: '15rem', borderRadius: '50%' }} />
+                    <Container >
+                        <Typography variant='h4'>Johan Jakberger</Typography>
+                        <Typography variant='h6'>johanjakberger@gmail.com</Typography>
+                        <Typography variant='h6'>Grums, Värmland, Sweden</Typography>
+                        <Typography variant='h6'>0707 - 36 47 57</Typography>
+                    </Container>
 
 
 
@@ -68,8 +69,20 @@ const Home = () => {
                                     workTitle={['Udemy kurs']}
                                     workedBetween=''
                                     content={['Jag må inte vara en designer, men om någon designar så bygger jag gärna ihop! ',
-                                    'Nyligen så genomgick jag en utbildning via Udemy inriktad på React, där jag fick en väldig förfräschning inom dessa ämnen',
+                                        'Nyligen så genomgick jag en utbildning via Udemy inriktad på React, där jag fick en väldig förfräschning inom dessa ämnen',
                                         'Anser mig själv vara mer inriktad på backend och dom tyngre ämnena, men denna biten är inga problem.']} />
+
+                                <ExperienceCard
+                                    maxWidth='100%'
+                                    color='#C4B1C4'
+                                    img={tsLogo}
+                                    url='#'
+                                    workPlace='TypeScript'
+                                    where=''
+                                    workTitle={['Udemy kurs']}
+                                    workedBetween=''
+                                    content={['Genomför just nu en utbildning inom .NET Core API kopplat med React uppbyggt med Typescript.',
+                                    'Själva Typescript delen älskar jag ust för likheter mot det gamla hederliga type sensitive sättet att tänka. Med tanke på att jag började programmera, i forna tider, i C++ och sen Java och C# så känns detta mer hemma för mig faktiskt.']} />
 
                                 <ExperienceCard
                                     maxWidth='50%'
@@ -90,10 +103,11 @@ const Home = () => {
                                     url='#'
                                     workPlace='Kurser utförda: '
                                     where=''
-                                    workTitle={['', 'Programmering 1', 'Programmering 2']}
+                                    workTitle={['', 'Programmering 1', 'Programmering 2', 'Udemy kurs']}
                                     workedBetween='2015 ->'
                                     content={['Pluggat upp programmering förr via Komvux. Kommer att studera upp mina gymnasiebetyg under 2023 för möjlighet att studera på yrkeshögskola inom systemutveckling eller, hellre, embedded programmering och lära mig IoT programmering.',
-                                        'Det var C++ jag började med när jag var 15 år (2005) och sen så byggdes det vidare med C# och Python, samt Java, Xamarin (.NET MAUI nu), Kotlin och mer Javascript nu.']}
+                                        'Det var C++ jag började med när jag var 15 år (2005) och sen så byggdes det vidare med C# och Python, samt Java, Xamarin (.NET MAUI nu), Kotlin och mer JavaScript/TypeScript nu.',
+                                    'Kursen jag genomför nu går in i djupet i just .NET Core API, vilket jag arbetar i att konstruera om API delen på denna hemsida.']}
                                 />
                                 <ExperienceCard
                                     maxWidth='100%'
@@ -105,8 +119,7 @@ const Home = () => {
                                     workTitle={['']}
                                     workedBetween=''
                                     content={['Min backend på hemsidan är uppbyggd i ExpressJS och har fungerat fenomenalt!',
-                                    'Jag har försökt konstruera ett så Restfullt API som möjligt för min "blog post" del, så den ska vara någorlunda enkel att manövrera.',
-                                    'Kanske inte den snyggaste lösningen, men jag är otroligt glad över den funktionalitet jag än så länge har, och förhoppningsvis så kommer den vara ett litet roligt sidoprojekt framöver. ' ]} />
+                                        'Jag har försökt konstruera ett så Restfullt API som möjligt för min "blog post" del, så den ska vara någorlunda enkel att manövrera.']} />
                                 <ExperienceCard
                                     maxWidth='70%'
                                     color='#C4B1C4'
@@ -117,9 +130,9 @@ const Home = () => {
                                     workTitle={['']}
                                     workedBetween=''
                                     content={['Databasen till hemsidan. Till mindre projekt så ser jag otroliga fördelar i flexibiliteten i att allt skickas i JSON filer, vilket är så smidigt att hantera här.',
-                                    'Jag har även suttit i MySQL och PostgresQL innan, men denna är jag för tillfället mer van med. Men som sagt, jag är också väldigt flexibel till vad som behöver utföras!']}/>
+                                        'Jag har även suttit i MySQL och PostgresQL innan, men denna är jag för tillfället mer van med. Men som sagt, jag är också väldigt flexibel till vad som behöver utföras!']} />
 
-                                
+
                             </Grid>
 
 
@@ -140,7 +153,7 @@ const Home = () => {
                         direction={'row'}>
 
 
-                        <Grid item xs={12} sx={{ mt: '1vh', mr: '1vh', ml:'1vh' }}>
+                        <Grid item xs={12} sx={{ mt: '1vh', mr: '1vh', ml: '1vh' }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} sx={{ mt: '1vh' }}>
 
@@ -168,7 +181,7 @@ const Home = () => {
                                     workPlace='Axess Logistics'
                                     where='Halmstad'
                                     workTitle={['Kundtjänst', 'Kvalité och miljösamordnare', 'Tillbehörsmonterare']}
-                                    workedBetween='December 2021 - September 2022'
+                                    workedBetween='Maj 2018 - Oktober 2021'
                                     content={['Arbetade först inne i tillbehörsmonteringsavdelningen, därefter kundtjänst gällande återförsäljare av BMW och MINI. Jag såg till att bilar som kom från Tyskland hamnade rätt i D365 från Båten till Bilfirman, kollade så det inte vara några avvikelser på bilen, fick kolla upp om bilens batteri behövde underhållas eller inte innan den skulle köras iväg till återförsäljare, samt mycket mer administrativa uppgifter.',
                                         'Efter detta, specifikt från September 2020, så började jag som assisterande Miljö och Kvalitésamordnare. Det inbegrep:',
                                     ]} table='<ul> <li>Hantering av skadade bilar orsakade, eller upptäckta, i vår vårdnad eller i vårt område.</li><li>Introducera människor till arbetet och informera om vad dom skulle göra.</li><li>Utbildning för samtliga i företaget om hur vi hanterar fordon på området, och hur vi hanterar underhåll av både vanliga bilar och elbilar.</li><li>Fakturering, mestadels mindre utgifter, men även större reklamationer som får undersökas.</li></ul>' />
