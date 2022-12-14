@@ -34,7 +34,7 @@ const Home = () => {
                 <Grid item xs={12} md={6} sx={{ mt: '1vh', mb: '3rem' }} align='center'>
 
 
-                    <img src={profilePic} alt='Profile picture' style={{ width: '75%', maxWidth: '15rem', borderRadius: '50%' }} />
+                    <img src={profilePic} alt='Profile' style={{ width: '75%', maxWidth: '15rem', borderRadius: '50%' }} />
                     <Container >
                         <Typography variant='h4'>Johan Jakberger</Typography>
                         <Typography variant='h6'>johanjakberger@gmail.com</Typography>
