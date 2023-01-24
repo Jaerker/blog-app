@@ -2,37 +2,35 @@
 import { Button, Container, Grid, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
+import Tree from './Tree';
 
 // node test: 
 // const equation = '5+6x8+20/4-3.8²+√9+15%';
 
 const Calculator = () => {
 
+    const [tree, setTree] = useState(new Tree());
     const [output, setOutput] = useState('0');
     const [input, setInput] = useState('0');
-    const [calculationIndex, setCalculationIndex] = useState('');
+    const [calculation, setCalculation] = useState('');
     const [numbers, setNumbers] = useState([]);
     const [operators, setOperators] = useState([]);
 
 
-    const setUpVariables = () => {
-        let numbers = input.split(/[-+x/]/).filter(n => n !== '');
-        let operators = input.split(/[0-9²√%.]/).filter(n => n !== '');
-        
-        return {numbers, operators};
-    };
 
     const numberBtn = (event) => {
         const { name } = event.currentTarget;
+        
 
-
-        //console.log(`numbers: ${numbers.length}, operators: ${operators.length}`);
+        console.log(`numbers: ${numbers.length}, operators: ${operators.length}`);
 
         if (input === '0') {
             if (name === '.') {
                 setInput('0.');
+                setCalculation('0.');
             } else {
                 setInput(name);
+                setCalculation(name);
             }
         }
         else {
@@ -40,6 +38,9 @@ const Calculator = () => {
             if (name === '.') {
                 if (numbers[numbers.length - 1] === '' || numbers.length === operators.length) {
                     setInput((prevValue) => {
+                        return prevValue + '0.';
+                    });
+                    setCalculation((prevValue) => {
                         return prevValue + '0.';
                     });
                 }
