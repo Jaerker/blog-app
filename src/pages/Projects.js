@@ -21,6 +21,7 @@ import calculatorLogoSmall from '../static/img/calculatorSmall.png';
 
 import ProjectCard from './components/projects_components/ProjectCard';
 import Calculator from './components/projects_components/Calculator';
+import HarborTable from './components/projects_components/HarborTable';
 
 
 //<Grid item xs={12} md={6}></Grid>
@@ -218,6 +219,9 @@ const Projects = () => {
             case 'calcBtn':
                 return (<Calculator />)
 
+            case 'harborTableBtn':
+                return (<HarborTable />)
+
             default:
                 break;
         }
@@ -254,6 +258,15 @@ const Projects = () => {
                         alt='Medieval Malfunction Logga'
                         content='Game jam spel gjort i Godot av mig och kompis.'
                         btnName='mmBtn'
+                        btnClick={btnClick}/>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                <ProjectCard 
+                        logo={mmLogo}
+                        alt='Medieval Malfunction Logga'
+                        content='Game jam spel gjort i Godot av mig och kompis.'
+                        btnName='harborTableBtn'
                         btnClick={btnClick}/>
                 </Grid>
 
