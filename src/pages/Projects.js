@@ -261,14 +261,14 @@ const Projects = () => {
                         btnClick={btnClick}/>
                 </Grid>
 
-                <Grid item xs={12} md={4}>
+                {/*<Grid item xs={12} md={4}>
                 <ProjectCard 
                         logo={mmLogo}
                         alt='Medieval Malfunction Logga'
                         content='Game jam spel gjort i Godot av mig och kompis.'
                         btnName='harborTableBtn'
                         btnClick={btnClick}/>
-                </Grid>
+                </Grid>*/}
 
                 {/* <Grid item xs={12} md={4}>
                 <ProjectCard 
