@@ -649,24 +649,24 @@ const Projects = () => {
                                     <Table sx={{ minWidth: 650 }} aria-label="Harbor Table">
                                         <TableHead>
                                             <TableRow>
-                                                <TableCell align='center' sx={{ fontWeight: '700', fontSize: '1vh', border: '1px solid black' }} >År</TableCell>
-                                                <TableCell align='center' sx={{ fontWeight: '700', fontSize: '1vh', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Land</TableCell>
-                                                <TableCell align='center' sx={{ fontWeight: '700', fontSize: '1vh', borderRight: '1px solid black', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Import(TKR)</TableCell>
-                                                <TableCell align='center' sx={{ fontWeight: '700', fontSize: '1vh', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Land</TableCell>
-                                                <TableCell align='center' sx={{ fontWeight: '700', fontSize: '1vh', borderRight: '1px solid black', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Export(TKR)</TableCell>
+                                                <TableCell align='center' sx={{ fontWeight: '600', fontSize: '1.7vh', border: '1px solid black' }} >År</TableCell>
+                                                <TableCell align='center' sx={{ fontWeight: '600', fontSize: '1.7vh', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Land</TableCell>
+                                                <TableCell align='center' sx={{ fontWeight: '600', fontSize: '1.7vh', borderRight: '1px solid black', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Import(TKR)</TableCell>
+                                                <TableCell align='center' sx={{ fontWeight: '600', fontSize: '1.7vh', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Land</TableCell>
+                                                <TableCell align='center' sx={{ fontWeight: '600', fontSize: '1.7vh', borderRight: '1px solid black', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Export(TKR)</TableCell>
 
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
                                             {harborInfo.root.map((row) => (
                                                 <TableRow key={row.year}>
-                                                    <TableCell sx={{ fontWeight: '600', fontSize: '0.9vh', borderRight: '1px solid black', borderLeft: '1px solid black' }} align='center'>
+                                                    <TableCell sx={{ fontWeight: '600', fontSize: '1.3vh', borderRight: '1px solid black', borderLeft: '1px solid black' }} align='center'>
                                                         {row.year}
                                                     </TableCell>
-                                                    <TableCell align='center'>{row.highestImportValue.country}</TableCell>
-                                                    <TableCell align='right' sx={{ borderRight: '1px solid black' }}>{Number(row.highestImportValue.cargoImport).toLocaleString()}</TableCell>
-                                                    <TableCell align='center'>{row.highestExportValue.country}</TableCell>
-                                                    <TableCell align='right' sx={{ borderRight: '1px solid black' }}>{Number(row.highestExportValue.cargoExport).toLocaleString()}</TableCell>
+                                                    <TableCell align='center' sx={{ fontSize: '1.3vh' }}>{row.highestImportValue.country}</TableCell>
+                                                    <TableCell align='right'  sx={{ fontSize: '1.3vh', borderRight: '1px solid black' }}>{Number(row.highestImportValue.cargoImport).toLocaleString()}</TableCell>
+                                                    <TableCell align='center' sx={{ fontSize: '1.3vh' }}>{row.highestExportValue.country}</TableCell>
+                                                    <TableCell align='right'  sx={{ fontSize: '1.3vh', borderRight: '1px solid black' }}>{Number(row.highestExportValue.cargoExport).toLocaleString()}</TableCell>
 
 
                                                 </TableRow>
