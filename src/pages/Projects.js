@@ -17,7 +17,7 @@ import mmScreen3 from '../static/img/medieval_malfunction/screen3.png';
 import mmTitleScreen from '../static/img/medieval_malfunction/titleScreen.png';
 
 import shipLogo from '../static/img/ship.jpg';
-
+import requestBody from './components/projects_components/requestBody.json'
 //import calculatorLogo from '../static/img/calculator.png';
 //import calculatorLogoSmall from '../static/img/calculatorSmall.png';
 
@@ -103,322 +103,7 @@ const Projects = () => {
     const [harborInfo, setHarborInfo] = useState(null);
 
     const harborUrl = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/HA/HA0201/HA0201A/OImpExpLandTotAr';
-    const requestBody = {
-        "query": [
-            {
-                "code": "Tid",
-                "selection": {
-                    "filter": "item",
-                    "values": [
-                        "2002",
-                        "2003",
-                        "2004",
-                        "2005",
-                        "2006",
-                        "2007",
-                        "2008",
-                        "2009",
-                        "2010",
-                        "2011",
-                        "2012",
-                        "2013",
-                        "2014",
-                        "2015",
-                        "2016",
-                        "2017",
-                        "2018",
-                        "2019",
-                        "2020",
-                        "2021",
-                        "2022"
-                    ]
-                }
-            },
-            {
-                "code": "Handelspartner",
-                "selection": {
-                    "filter": "item",
-                    "values": [
-                        "AF",
-                        "AL",
-                        "DZ",
-                        "VI",
-                        "XA",
-                        "AS",
-                        "AD",
-                        "AO",
-                        "AI",
-                        "AQ",
-                        "AG",
-                        "AR",
-                        "AM",
-                        "AW",
-                        "AU",
-                        "XO",
-                        "AZ",
-                        "BS",
-                        "BH",
-                        "BD",
-                        "BB",
-                        "BY",
-                        "BE",
-                        "LX",
-                        "BZ",
-                        "BJ",
-                        "BM",
-                        "BT",
-                        "BO",
-                        "BQ",
-                        "BA",
-                        "BW",
-                        "BV",
-                        "BR",
-                        "IO",
-                        "VG",
-                        "BN",
-                        "BG",
-                        "QS",
-                        "QR",
-                        "QQ",
-                        "BF",
-                        "BI",
-                        "KY",
-                        "CF",
-                        "XC",
-                        "CL",
-                        "CO",
-                        "CK",
-                        "CR",
-                        "CW",
-                        "CY",
-                        "DK",
-                        "TF",
-                        "CD",
-                        "QP",
-                        "DJ",
-                        "DM",
-                        "DO",
-                        "EC",
-                        "EG",
-                        "QU",
-                        "GQ",
-                        "SV",
-                        "CI",
-                        "ER",
-                        "EE",
-                        "SZ",
-                        "ET",
-                        "QV",
-                        "FK",
-                        "FJ",
-                        "PH",
-                        "FI",
-                        "FR",
-                        "GF",
-                        "PF",
-                        "FO",
-                        "AE",
-                        "GB",
-                        "US",
-                        "UM",
-                        "GA",
-                        "GM",
-                        "GE",
-                        "GH",
-                        "GI",
-                        "GR",
-                        "GD",
-                        "GL",
-                        "GP",
-                        "GU",
-                        "GT",
-                        "GN",
-                        "GW",
-                        "GY",
-                        "HT",
-                        "HM",
-                        "VA",
-                        "HN",
-                        "HK",
-                        "QW",
-                        "IN",
-                        "ID",
-                        "IQ",
-                        "IR",
-                        "IE",
-                        "IS",
-                        "IL",
-                        "IT",
-                        "JM",
-                        "JP",
-                        "YE",
-                        "JO",
-                        "CX",
-                        "KH",
-                        "CM",
-                        "CA",
-                        "XB",
-                        "CV",
-                        "KZ",
-                        "KE",
-                        "CN",
-                        "KG",
-                        "KI",
-                        "CC",
-                        "QX",
-                        "QY",
-                        "QZ",
-                        "KM",
-                        "CG",
-                        "XK",
-                        "HR",
-                        "CU",
-                        "KW",
-                        "LA",
-                        "LS",
-                        "LV",
-                        "LB",
-                        "LR",
-                        "LY",
-                        "LI",
-                        "LT",
-                        "LU",
-                        "MO",
-                        "MG",
-                        "MW",
-                        "MY",
-                        "MV",
-                        "ML",
-                        "MT",
-                        "MA",
-                        "MH",
-                        "MQ",
-                        "MR",
-                        "MU",
-                        "YT",
-                        "XL",
-                        "MX",
-                        "FM",
-                        "MZ",
-                        "MD",
-                        "MN",
-                        "ME",
-                        "MS",
-                        "MM",
-                        "NA",
-                        "NR",
-                        "NL",
-                        "AN",
-                        "NP",
-                        "NI",
-                        "NE",
-                        "NG",
-                        "NU",
-                        "KP",
-                        "MK",
-                        "MP",
-                        "NF",
-                        "NO",
-                        "NC",
-                        "NZ",
-                        "XZ",
-                        "OM",
-                        "PK",
-                        "PW",
-                        "PS",
-                        "PA",
-                        "PG",
-                        "PY",
-                        "PE",
-                        "PN",
-                        "XR",
-                        "PL",
-                        "PT",
-                        "QA",
-                        "RE",
-                        "RO",
-                        "RW",
-                        "RU",
-                        "KN",
-                        "LC",
-                        "VC",
-                        "BL",
-                        "PM",
-                        "SB",
-                        "WS",
-                        "SM",
-                        "SH",
-                        "ST",
-                        "SA",
-                        "CH",
-                        "SN",
-                        "RS",
-                        "CS",
-                        "SC",
-                        "SL",
-                        "SG",
-                        "SX",
-                        "SK",
-                        "SI",
-                        "SO",
-                        "ES",
-                        "LK",
-                        "SD",
-                        "SR",
-                        "ZA",
-                        "GS",
-                        "KR",
-                        "SS",
-                        "SY",
-                        "TJ",
-                        "TW",
-                        "TZ",
-                        "TD",
-                        "TH",
-                        "CZ",
-                        "TG",
-                        "TK",
-                        "TO",
-                        "TT",
-                        "TN",
-                        "TR",
-                        "TM",
-                        "TC",
-                        "TV",
-                        "DE",
-                        "UG",
-                        "UA",
-                        "HU",
-                        "UY",
-                        "UZ",
-                        "WF",
-                        "VU",
-                        "VE",
-                        "VN",
-                        "XP",
-                        "EH",
-                        "ZM",
-                        "ZW",
-                        "AT",
-                        "TL"
-                    ]
-                }
-            },
-            {
-                "code": "ContentsCode",
-                "selection": {
-                    "filter": "Item",
-                    "values": [
-                        "HA0201J8",
-                        "HA0201J9"
-                    ]
-                }
-            }
-        ],
-        "response": {
-            "format": "json"
-        }
-    };
+    
     useEffect(() => {
         if (!harborInfo) {
             fetchData().catch((e) => { console.error(e.message) });
@@ -450,10 +135,7 @@ const Projects = () => {
     //Slut på hamnkodsvariabler
     
     const [anchorEl, setAnchorEl] = useState(null);
-
     const [cardInfo, setCardInfo] = useState(null);
-    
- 
 
     const fullCardContent = (value) => {
         switch (value) {
@@ -642,13 +324,14 @@ const Projects = () => {
                 return (<Calculator />)
 //Hamnkodslogik
             case 'harborTableBtn':
-                return (
-                    <>
-                        
+                return (    
                                 <TableContainer component={Paper}>
+
                                     <Table sx={{ minWidth: 650 }} aria-label="Harbor Table">
+
                                         <TableHead>
                                             <TableRow>
+
                                                 <TableCell align='center' sx={{ fontWeight: '600', fontSize: '1.7vh', border: '1px solid black' }} >År</TableCell>
                                                 <TableCell align='center' sx={{ fontWeight: '600', fontSize: '1.7vh', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Land</TableCell>
                                                 <TableCell align='center' sx={{ fontWeight: '600', fontSize: '1.7vh', borderRight: '1px solid black', borderTop: '1px solid black', borderBottom: '1px solid black' }}>Import(TKR)</TableCell>
@@ -657,9 +340,11 @@ const Projects = () => {
 
                                             </TableRow>
                                         </TableHead>
+
                                         <TableBody>
                                             {harborInfo.root.map((row) => (
                                                 <TableRow key={row.year}>
+
                                                     <TableCell sx={{ fontWeight: '600', fontSize: '1.3vh', borderRight: '1px solid black', borderLeft: '1px solid black' }} align='center'>
                                                         {row.year}
                                                     </TableCell>
@@ -667,20 +352,14 @@ const Projects = () => {
                                                     <TableCell align='right'  sx={{ fontSize: '1.3vh', borderRight: '1px solid black' }}>{Number(row.highestImportValue.cargoImport).toLocaleString()}</TableCell>
                                                     <TableCell align='center' sx={{ fontSize: '1.3vh' }}>{row.highestExportValue.country}</TableCell>
                                                     <TableCell align='right'  sx={{ fontSize: '1.3vh', borderRight: '1px solid black' }}>{Number(row.highestExportValue.cargoExport).toLocaleString()}</TableCell>
-
-
+                                                
                                                 </TableRow>
                                             ))}
                                         </TableBody>
+
                                     </Table>
 
-                                </TableContainer>
-
-
-                            
-
-
-                    </>);
+                                </TableContainer>);
 
 
             default:
@@ -688,15 +367,10 @@ const Projects = () => {
         }
     }
 
-
-
-
-
     const btnClick = (e) => {
         setCardInfo(e.target.name);
         setAnchorEl(e.currentTarget)
     }
-
 
     const open = Boolean(anchorEl);
     const id = open ? 'popOver' : undefined;
@@ -739,7 +413,6 @@ const Projects = () => {
                             </CardContent>
                             <CardActions sx={{ justifyContent: 'center', alignItems: 'end', }}>
                                 <Button variant='outlined' fullWidth disabled>Laddar...</Button>
-
                             </CardActions>
                         </Card>
                     </Container>
@@ -754,8 +427,6 @@ const Projects = () => {
                             loading={loading} />
                     </Grid>
                 )}
-
-
                 {/* <Grid item xs={12} md={4}>
                 <ProjectCard 
                         logo={calculatorLogo}
