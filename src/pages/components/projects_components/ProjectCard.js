@@ -3,6 +3,7 @@ import React from 'react';
 
 const ProjectCard = (props) => {
 
+
     
 
     return (
@@ -18,7 +19,8 @@ const ProjectCard = (props) => {
                     <Typography variant='subtitle1'>{props.content}</Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: 'center', alignItems:'end',  }}>
-                    <Button variant='outlined' fullWidth name={props.btnName} onClick={props.btnClick}>LÄS MER</Button>
+                   <Button variant='outlined' fullWidth name={props.btnName} onClick={props.btnClick}>LÄS MER</Button>
+                    
                 </CardActions>
             </Card>
         </Container>

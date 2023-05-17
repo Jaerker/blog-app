@@ -1,7 +1,7 @@
 
 import { Button, Container, Grid, TextField } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Tree from './Tree';
 
 // node test: 
@@ -406,7 +406,6 @@ const Calculator = () => {
 
         </>
     )
-}
-
+    }
 
 export default Calculator;
