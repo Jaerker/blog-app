@@ -427,14 +427,14 @@ const Projects = () => {
                             loading={loading} />
                     </Grid>
                 )}
-                {/* <Grid item xs={12} md={4}>
+                 <Grid item xs={12} md={4}>
                 <ProjectCard 
                         logo={calculatorLogo}
                         alt='Kalkylator'
                         content='Enkel kalkylator gjord i React'
                         btnName='calcBtn'
                         btnClick={btnClick}/>
-                </Grid> */}
+                </Grid> 
             </Grid>
 
             <Backdrop
