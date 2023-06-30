@@ -24,6 +24,28 @@ const Calculator = () => {
 
         console.log(`numbers: ${numbers.length}, operators: ${operators.length}`);
 
+        /*
+        
+        Create calcTree 
+
+        IF button pressed: 
+            IF button == ".":
+                IF !inputCalc.includes('.'):
+                    IF inputCalc == null
+                        inputCalc = '0.'
+                    ELSE:
+                        inputCalc += '.'
+
+            IF button == number:
+                IF inputCalc == '0' or null:
+                    inputCalc = number
+                ELSE:
+                    IF number == '0':
+                        
+
+
+        */
+
         if (input === '0') {
             if (name === '.') {
                 setInput('0.');

@@ -39,7 +39,6 @@ const Home = () => {
                         <Typography variant='h4'>Johan Jakberger</Typography>
                         <Typography variant='h6'>johanjakberger@gmail.com</Typography>
                         <Typography variant='h6'>Grums, Värmland, Sweden</Typography>
-                        <Typography variant='h6'>0707 - 36 47 57</Typography>
                     </Container>
 
 
