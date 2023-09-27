@@ -9,6 +9,7 @@ import Tree from './Tree';
 
 const Calculator = () => {
 
+    const [currentInput, setCurrentInput] = useState('0');
     const [tree, setTree] = useState(new Tree());
     const [output, setOutput] = useState('0');
     const [input, setInput] = useState('0');
@@ -16,80 +17,47 @@ const Calculator = () => {
     const [numbers, setNumbers] = useState([]);
     const [operators, setOperators] = useState([]);
 
-
+useEffect(()  =>{
+    setInput(currentInput)
+}, [currentInput]);
 
     const numberBtn = (event) => {
-        const { name } = event.currentTarget;
+        const thisInput = event.currentTarget.name;
         
+        //Kolla decimal och liknande.
+        console.log(thisInput);
 
-        console.log(`numbers: ${numbers.length}, operators: ${operators.length}`);
-
-        if (input === '0') {
-            if (name === '.') {
-                setInput('0.');
-                setCalculation('0.');
-            } else {
-                setInput(name);
-                setCalculation(name);
-            }
-        }
-        else {
-            //Decimal point
-            if (name === '.') {
-                if (numbers[numbers.length - 1] === '' || numbers.length === operators.length) {
-                    setInput((prevValue) => {
-                        return prevValue + '0.';
-                    });
-                    setCalculation((prevValue) => {
-                        return prevValue + '0.';
-                    });
-                }
-                else if (!/[.]/.test(numbers[numbers.length - 1])) {
-                    setInput((prevValue) => {
-                        return prevValue + name;
-                    });
-                }
-            }
-            //Numbers
-            else {
-                if (!/[%²]/.test(numbers[numbers.length - 1]) || numbers.length === operators.length)
-                    if (numbers[numbers.length - 1] === '0') {
-
-                        if (numbers.length === operators.length) {
-                            setInput((prevValue) => {
-                                return prevValue.slice(0, prevValue.length - 2) + name;
-                            });
-                        }
-                        else {
-                            setInput((prevValue) => {
-                                return prevValue.slice(0, prevValue.length - 1) + name;
-                            });
-                        }
+        setCurrentInput((prevValue) => {   
+            if(thisInput === '.'){
+                if(!currentInput.includes('.')){
+                    if(currentInput !== '0'){
+                        return prevValue + thisInput;
                     }
-                    else {
-                        setInput((prevValue) => {
-                            return prevValue + name;
-                        });
+                    else{
+                        return '0.';
                     }
+                }
+                else{
+                    return prevValue;
+                }
+                
+                
             }
-        }
+            
+            if(currentInput === '0'){
+                return thisInput;
+            }
+            else{
+                return prevValue +thisInput;
+            }
+        });
+
+
+
     }
 
     const operatorBtn = (event) => {
-        const { name } = event.currentTarget;
-
-
-        if (numbers.length > operators.length) {
-            setInput((prevValue) => {
-                return prevValue + name;
-            });
-        }
-        else {
-            setInput((prevValue) => {
-                return prevValue.slice(0, prevValue.length - 1) + name;
-            });
-        }
-
+        
     }
 
     const squaredOrPercentBtn = (event) => {
@@ -136,6 +104,7 @@ const Calculator = () => {
         if (name === 'delete') {
             setInput('0');
             setOutput('0');
+            setCurrentInput('0');
         }
     }
 
@@ -143,153 +112,7 @@ const Calculator = () => {
 
     const sumBtn = () => {
 
-        //If they are the same length, it ended with an operator. It will be removed here
-        if (numbers.length === operators.length) {
-            setOperators((prevValue) => {
-                return prevValue.pop();
-            });
-            
-        }
-
-
-    //     try{
-    //     //Prio1 = ², √ and %
-    //     //CalculationIndex holds the index for the first part of the equation that needs to be done so we can go to next step.
-    //     setCalculationIndex(numbers.findIndex((element) => { return /[²√%]/.test(element) }));
-
-    //     while (calculationIndex !== -1) {
-
-    //         let value = numbers[calculationIndex];
-    //         if (/[²]/.test(value)) {
-    //             value = value.slice(0, value.length - 1);
-    //             let num = parseFloat(value) * parseFloat(value);
-    //             setNumbers((prevValue) =>{
-    //                 prevValue[calculationIndex] = num;
-    //                 return prevValue;
-    //             });
-    //         }
-    //         if (/[%]/.test(value)) {
-    //             value = value.slice(0, value.length - 1);
-    //             let num = parseFloat(value);
-    //             numbers[calculationIndex] = (num / 100);
-    //         }
-    //         if (/[√]/.test(value)) {
-    //             value = numbers[calculationIndex].slice(1, numbers[calculationIndex].length);
-    //             let num = parseFloat(value);
-    //             numbers[calculationIndex] = Math.sqrt(num);
-    //         }
-
-
-    //         setCalculationIndex(numbers.findIndex((element) => { return /[²√%]/.test(element) }));
-
-
-    //     }
-
-    //     /*Prio2 = x and / 
-    //     Same logic as before, but now we do the comparison on the operation side instead.          
-    //     */
-
-    //     setCalculationIndex(operators.findIndex((element) => { return /[x/]/.test(element) }));
-
-    //     while (calculationIndex !== -1) {
-
-    //         if (operators[calculationIndex] === 'x') {
-    //             numbers[calculationIndex] = numbers[calculationIndex] * numbers[calculationIndex + 1]
-    //         }
-    //         else if (operators[calculationIndex] === '/') {
-    //             numbers[calculationIndex] = numbers[calculationIndex] / numbers[calculationIndex + 1]
-    //         }
-
-    //         let firstPart = numbers.slice(0, calculationIndex);
-    //         let lastPart = numbers.slice(calculationIndex + 1);
-    //         numbers = firstPart.concat(lastPart);
-
-    //         firstPart = operators.slice(0, calculationIndex);
-    //         lastPart = operators.slice(calculationIndex + 1);
-    //         operators = firstPart.concat(lastPart);
-
-    //         setCalculationIndex(operators.findIndex((element) => { return /[x/]/.test(element) }));
-
-    //     }
-
-
-    //     //Prio 3 = + -
-    //     for (let index = 0; index < operators.length; index++) {
-    //         const operator = operators[index];
-    //         if(operator === '+'){
-    //             numbers[index+1] = numbers[index] + numbers[index+1];
-    //         }
-    //         else if(operator === '-'){
-    //             numbers[index+1] = numbers[index] - numbers[index+1];
-    //         }
-    //         numbers.slice(index+1);
-    //         operators.slice(index+1);
-    //         index -=1;
-            
-    //     }
-    //     setOutput(numbers[0]);
-
-    // }catch(e){
-    //     console.log(e);
-    // }
-    setNumbers((prevValue) =>{
-        prevValue[2] = 'num';
-        return prevValue;
-    });
-
-
-        // while(calculationIndex !== -1){
-
-        //     if(operators[calculationIndex] === '+'){
-        //     numbers[calculationIndex] = numbers[calculationIndex] + numbers[calculationIndex+1]
-        //     }
-        //     else if(operators[calculationIndex] === '-'){
-        //     numbers[calculationIndex] = numbers[calculationIndex] - numbers[calculationIndex+1]
-        //     }
-        //     let firstPart = numbers.slice(0, calculationIndex);
-        //     let lastPart = numbers.slice(calculationIndex+1);
-        //     numbers = firstPart.concat(lastPart);
-
-        //     firstPart = operators.slice(0, calculationIndex);
-        //     lastPart = operators.slice(calculationIndex+1);
-        //     operators = firstPart.concat(lastPart);
-
-        // }
-
-
-    }
-
-    /*
-    if (numberArray[numberArray.length - 1] === '') {
-            numberArray.pop();
-            operatorArray.pop();
-        }
-        let prio3Index = numberArray.findIndex((element) => { return /[²√%]/.test(element) })
-
-        while (prio3Index !== -1) {
-            let value = numberArray[prio3Index];
-
-            if (/[²]/.test(value)) {
-
-                let num = parseFloat(value.slice(0, value.length - 1));
-                numberArray[prio3Index] = num * num;
-            }
-            else if (/[√]/.test(value)) {
-
-                numberArray[prio3Index] = Math.sqrt(parseFloat(value.slice(1)));
-            }
-            else {
-                value.slice(0, value.length - 1);
-                let num = parseFloat(value);
-                numberArray[prio3Index] = (num / 100);
-            }
-
-
-            prio3Index = numberArray.findIndex((element) => { return /[²√%]/.test(element) })
-        }
-
-        setOutput(numberArray);
-     */
+}
 
 
 
@@ -326,8 +149,8 @@ const Calculator = () => {
 
                     <Grid container direction='column' item xs={6} sx={{ height: '300px' }} alignItems='center' spacing={1}>
                         <Grid item xs={2.4} sx={numBtnValues}>
-                            <Button onClick={deletionBtn} name='backspace' fullWidth variant='contained' color='error'>←</Button>
-                        </Grid>
+                            {//<Button onClick={deletionBtn} name='backspace' fullWidth variant='contained' color='error'>←</Button>
+}</Grid>
                         <Grid item xs={2.4} sx={numBtnValues}>
                             <Button onClick={numberBtn} name='7' fullWidth variant='contained'>7</Button>
                         </Grid>
@@ -341,8 +164,9 @@ const Calculator = () => {
                             <Button onClick={numberBtn} name='.' fullWidth variant='contained'>.</Button>
                         </Grid>
                         <Grid item xs={2.4} sx={numBtnValues}>
-                            <Button onClick={deletionBtn} name='delete' fullWidth variant='contained' color='error'>del</Button>
-                        </Grid>
+                            {
+                            //<Button onClick={deletionBtn} name='delete' fullWidth variant='contained' color='error'>del</Button>
+                            }</Grid>
                         <Grid item xs={2.4} sx={numBtnValues}>
                             <Button onClick={numberBtn} name='8' fullWidth variant='contained'>8</Button>
                         </Grid>
