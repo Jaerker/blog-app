@@ -17,12 +17,10 @@ import mmScreen3 from '../static/img/medieval_malfunction/screen3.png';
 import mmTitleScreen from '../static/img/medieval_malfunction/titleScreen.png';
 
 import shipLogo from '../static/img/ship.jpg';
-import requestBody from './components/projects_components/requestBody.json'
-//import calculatorLogo from '../static/img/calculator.png';
-//import calculatorLogoSmall from '../static/img/calculatorSmall.png';
+import requestBody from './components/projects_components/requestBody.json';
+
 
 import ProjectCard from './components/projects_components/ProjectCard';
-import Calculator from './components/projects_components/Calculator';
 
 
 //<Grid item xs={12} md={6}></Grid>
@@ -320,8 +318,6 @@ const Projects = () => {
                     </Grid>
                 )
 
-            case 'calcBtn':
-                return (<Calculator />)
 //Hamnkodslogik
             case 'harborTableBtn':
                 return (    
@@ -427,14 +423,7 @@ const Projects = () => {
                             loading={loading} />
                     </Grid>
                 )}
-                 <Grid item xs={12} md={4}>
-                {/*<ProjectCard 
-                        logo={calculatorLogo}
-                        alt='Kalkylator'
-                        content='Enkel kalkylator gjord i React'
-                        btnName='calcBtn'
-                btnClick={btnClick}/>*/}
-                </Grid> 
+
             </Grid>
 
             <Backdrop
