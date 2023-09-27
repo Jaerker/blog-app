@@ -13,7 +13,6 @@ import {
   CircularProgress,
   Alert,
   Collapse,
-  Input
 
 } from '@mui/material';
 
@@ -124,7 +123,9 @@ const BlogLogin = () => {
       }
     }).catch((err) => {
       
-      return [`Error: ${err.response.data}`, 'warning'];
+      setWorking(false);
+      return [`Error: ${err}`, 'warning'];
+
 
     });
 
@@ -145,9 +146,14 @@ const BlogLogin = () => {
       });
       setWorking(false);
     }
-    // else{
-    //   setWorking(false);
-    // }
+     else{
+      setAlertMsg({
+        message: response[0],
+        severity: response[1],
+        showing: true
+      });
+       setWorking(false);
+     }
 
 
 
