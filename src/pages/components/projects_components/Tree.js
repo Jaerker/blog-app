@@ -80,7 +80,6 @@ class TreeNode {
 }
 export default class Tree {
     constructor(d, l, r) {
-        this.root = new TreeNode();
         this.root = new TreeNode(d, l, r);
     }
     printCalculation() {

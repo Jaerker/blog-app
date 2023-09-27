@@ -1,7 +1,7 @@
 
 import { Button, Container, Grid, TextField } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Tree from './Tree';
 
 // node test: 
@@ -24,18 +24,28 @@ useEffect(()  =>{
     const numberBtn = (event) => {
         const thisInput = event.currentTarget.name;
         
-        //Kolla decimal och liknande.
-        console.log(thisInput);
 
-        setCurrentInput((prevValue) => {   
-            if(thisInput === '.'){
-                if(!currentInput.includes('.')){
-                    if(currentInput !== '0'){
-                        return prevValue + thisInput;
-                    }
-                    else{
-                        return '0.';
-                    }
+        console.log(`numbers: ${numbers.length}, operators: ${operators.length}`);
+
+        if (input === '0') {
+            if (name === '.') {
+                setInput('0.');
+                setCalculation('0.');
+            } else {
+                setInput(name);
+                setCalculation(name);
+            }
+        }
+        else {
+            //Decimal point
+            if (name === '.') {
+                if (numbers[numbers.length - 1] === '' || numbers.length === operators.length) {
+                    setInput((prevValue) => {
+                        return prevValue + '0.';
+                    });
+                    setCalculation((prevValue) => {
+                        return prevValue + '0.';
+                    });
                 }
                 else{
                     return prevValue;
@@ -230,7 +240,6 @@ useEffect(()  =>{
 
         </>
     )
-}
-
+    }
 
 export default Calculator;
